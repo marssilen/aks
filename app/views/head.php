@@ -19,8 +19,33 @@
 <script src="<?= URL ?>public/myscript.js"></script>
 <script src="<?= URL ?>public/js/header.js.php"></script>
 <title>MIM PHOTOGRAPHY</title>
-<style>
-</style>
+    <style>
+        body{
+            font-family: 'Yekan' ;
+            /*font-size: 15px;*/
+            text-align: right;
+            direction: rtl;
+        }
+        a:link, a:visited{
+            text-decoration:none;
+        }
+        ul li{
+            list-style-type: none;
+        }
+        li ul li{
+            margin-left:-1em;
+        }
+
+        .bg-dark {
+            background-color: #494949;
+            color:#BFB8B8;
+        }
+        .top-align{
+            padding:10px 50px 10px 50px;
+        }
+
+
+    </style>
 <!-- <script>
 $(function(){
 // $(".image").height($("#image").width()*9/16);

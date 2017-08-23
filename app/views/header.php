@@ -1,8 +1,4 @@
-<div class="w3-grey">
-<div style="padding:32px" id="l_header">
-<?php require_once('app/views/header_content.php'); ?>
-</div>
-</div>
+
 <!--######################################################-->
 <div id="login_modal" class="w3-modal">
     <div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">

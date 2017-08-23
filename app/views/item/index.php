@@ -19,13 +19,7 @@ $url = "http" . (($_SERVER['SERVER_PORT'] == 443) ? "s://" : "://") . $_SERVER['
 ">
 
 <?= $data['long_description'] ?>
-
-    <p class="price1">
-        قیمت  :<?= $data['price'] ?>
-    </p>
-    <input type="hidden" name="id" value="<?= $data['id'] ?>"/>
-
-<button id="buy_btn" class="w3-green w3-round" type="submit" name="submit" style="border: none;padding: 8px">افزودن به سبد خرید</button>
+    
 </div>
 </div>
 <div class="w3-col s12 m4 w3-center" >

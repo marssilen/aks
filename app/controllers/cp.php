@@ -7,7 +7,7 @@ class Cp extends ControllerPanel
 	}
 function logout(){
 Session::destroy();
-header('location: '.URL.'login');
+header('location: '.URL);
 exit;
 }
 public function index(){

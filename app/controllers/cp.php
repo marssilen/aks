@@ -11,12 +11,12 @@ header('location: '.URL);
 exit;
 }
 public function index(){
-$this->my_orders();
+$this->items();
 }
 public function items($pageno=1)
 {
 	if(isAdmin()){
-		$rows_per_page=3;
+		$rows_per_page=12;
 		$data=$this->formModel->get_all($pageno,$rows_per_page);
 		$pview=$this->formModel->get_pview('items',$pageno,$rows_per_page);
 		$this->view('cp/index',['data'=>$data,'pview'=>$pview],true);
@@ -44,7 +44,7 @@ function add_item(){
 function delete_item($id=''){
 	if(isAdmin()){
 		$data=$this->formModel->delete_item($id);
-		header("Location: ".URL."cp");
+		header("Location: ".URL."cp/items/");
 	}
 }
 function delete_cat($id=''){
@@ -111,11 +111,7 @@ $data=$this->formModel->get_address_detail($id);
 print_r($data);
 $this->view('cp/address_detail',$data);
 }
-function purchased($page=1){
-$page=(int)$page;
-$data=$this->formModel->get_orders($page);
-$this->view('cp/purchased',$data,true);
-}
+
 function menu(){
 $req=array('id','menu','parent','href','submit');
 if(form::check($_POST, $req,TRUE)){
@@ -140,7 +136,7 @@ $this->view('cp/menu',$data,true);
 }
 function get_users($page=1){
 $page=(int)$page;
-$pagelimit=2;
+$pagelimit=20;
 $data=$this->formModel->get_users($page,$pagelimit);
 $pview=$this->formModel->get_pview('userlist',$page,$pagelimit);
 $this->view('cp/users_list',['data'=>$data,'pview'=>$pview],true);
@@ -174,86 +170,15 @@ function edit_order($factor_id){
 		$this->view('cp/edit_order',$data);
 	}
 }
-function comments($verified=false){
-if($verified){
-$verified=1;
-}else{
-$verified=0;
-}
-$data=$this->formModel->get_comments($verified);
-$this->view('cp/comments',$data,true);
-}
-function edit_comment($id){
-if(isset($id)){
 
-if(isset($_POST['sub']) and $_POST['sub']=='submit'){
-$this->formModel->edit_comment($id,array('comment'=>htmlentities($_POST['comment']),'verified'=>htmlentities($_POST['verified'])));
-}elseif(isset($_POST['sub']) and $_POST['sub']=='delete'){
-$this->formModel->delete_comment($id);
-header('location:'.URL.'cp/comments/'.$_POST['verified']);
-}
-$data=$this->formModel->get_comment($id);
-//print_r($data);
-if(isset($data[0])){
-$data=$data[0];
-$this->view('cp/edit_comment',$data,true);
-}
 
-}
-}
 function profile(){
 $user_id= Session::get('id');
 $data=$this->formModel->get_profile($user_id);
 $this->view('cp/profile',$data);
 }
-function factor_show($factor_id){
-if($this->formModel->check_user('factors',$factor_id,'id')){
-	$data=array('items'=>$this->formModel->show_factor($factor_id),'factor'=>$this->formModel->show_factor_main($factor_id));
-// $data=$this->formModel->show_factor($factor_id);
-$this->view('cp/show_factor',$data);
-}else{
-header('location:'.URL.'cp');
-}
 
-}
 
-function factor_review(){
-	$factor_id= $this->formModel->get_factor();
-	$req=array('sel');
-	//item hay sel vojood dashte bashad
-	if(form::check($_POST, $req)){
-	foreach($_POST['sel'] as $item=>$value){
-	$this->formModel->change_item_numbers($item,$value,$factor_id);
-	}
-	}
-	if (form::check($_POST, array('pay'))){
-	echo 'pay now';
-	echo $_POST['address'];
-	$price=$this->formModel->set_final_factor($factor_id,$_POST['address']);
-	die();
-	}
-	$data=$this->formModel->show_factor($factor_id);
-	$this->view('cp/review_factor',$data);
-}
-function remove_from_list($id){
-	if($this->formModel->remove_from_list($id)){
-	    echo 'done';
-    }else{
-	    echo 'failed';
-    }
-}
-function my_orders(){
-	$data=$this->formModel->get_my_orders();
-	$this->view('cp/my_orders',$data);
-}
-function my_comments(){
-$data=$this->formModel->get_my_comments();
-$this->view('cp/my_comments',$data);
-}
-function my_favorites(){
-$data=$this->formModel->get_my_favorites();
-$this->view('cp/my_favorites',$data);
-}
 function address_remove($id){
 	$this->formModel->remove_address($id);
 	 header('location: '.URL.'cp/address');

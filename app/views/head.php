@@ -20,7 +20,7 @@
 <script src="<?= URL ?>public/js/header.js.php"></script>
 <title>MIM PHOTOGRAPHY</title>
     <style>
-        body{
+        body,h3{
             font-family: 'Yekan' ;
             /*font-size: 15px;*/
             text-align: right;

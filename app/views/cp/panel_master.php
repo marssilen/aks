@@ -68,31 +68,24 @@ $('.mother').click(function(e) {
         <ul>
         <?php if(Session::get('role')=='admin'){?>
             <li>
-                <a class="mother" href="<?= LINK ?>">Desktop <span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="mother" href="<?= LINK ?>">میز کار <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionOneLinks">
-                  <li><a href="<?= display(URL) ?>cp/items/"><span class="glyphicon glyphicon-th"></span> Items</a></li>
-                  <li><a href="<?= display(URL) ?>cp/show_cat"><span class="glyphicon glyphicon-list"></span> Categories</a></li>
-                  <li><a href="<?= display(URL) ?>cp/s"><span class="glyphicon glyphicon-picture"></span> Files</a></li>
-                  <li><a href="<?= display(URL) ?>cp/purchased"><span class="glyphicon glyphicon-shopping-cart"></span> Orders</a></li>
-                  <li><a href="<?= display(URL) ?>cp/menu">Menu</a></li>
+                  <li><a href="<?= display(URL) ?>cp/items/"><span class="glyphicon glyphicon-th"></span> عکس ها</a></li>
+                  <li><a href="<?= display(URL) ?>cp/show_cat"><span class="glyphicon glyphicon-list"></span> دسته بندی ها</a></li>
+                  <li><a href="<?= display(URL) ?>cp/s"><span class="glyphicon glyphicon-picture"></span> فایل ها</a></li>
+                  <li><a href="<?= display(URL) ?>cp/menu"><span class="glyphicon glyphicon-menu-hamburger"></span> منو ها </a></li>
                 </ul>
             </li>
             <li>
-                <a class="mother" href="#">Users <span class="glyphicon glyphicon-chevron-down"></span></a>
+                <a class="mother" href="#">کاربران <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionTwoLinks">
-                  <li><a href="<?= display(URL) ?>cp/get_users/"><span class="glyphicon glyphicon-user"></span> Users list</a></li>
-                  <li><a href="<?= display(URL) ?>cp/comments">comments</a></li>
-                  <li><a href="<?= display(URL) ?>cp/#">send message to user</a></li>
+                  <li><a href="<?= display(URL) ?>cp/get_users/"><span class="glyphicon glyphicon-user"></span> لیست کاربران</a></li>
                 </ul>
             </li>
             <?php } ?>
             <li>
                 <a class="mother" href="<?= LINK ?>">گزارش <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionThreeLinks" ><!--style="display: none;"-->
-                  <li><a href="<?= display(URL) ?>cp/my_orders">سفارشات من</a></li>
-                  <li><a href="<?= display(URL) ?>cp/my_favorites">لیست مورد علاقه</a></li>
-                  <li><a href="<?= display(URL) ?>cp/my_comments">نظرات من</a></li>
-                  <li><a href="<?= display(URL) ?>cp/#">پیام پشتیبانی</a></li>
                   <li><a href="<?= display(URL) ?>cp/profile">پروفایل من</a></li>
                   <li><a href="<?= display(URL) ?>cp/address">آدرس های من</a></li>
                 </ul>

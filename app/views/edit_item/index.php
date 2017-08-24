@@ -8,9 +8,10 @@ $images=  $data['image'];
   <?php require_once('app/views/header.php'); ?>
   <?php require_once('app/views/menu.php'); ?>
 <script src="<?= URL ?>public/js/ckeditor/ckeditor.js"></script>
-
-<a href="<?php echo 'delete_item/'.$data['id']; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border w3-right w3-margin-4">حذف</button></a>
-
+<div class="w3-card w3-right " style="padding: 5px">
+<a href="<?= 'delete_item/'.$data['id']; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border">حذف</button></a>
+<a href="<?=URL.'item/'.$data['id']; ?>"><button class="w3-padding-2 w3-btn w3-blue w3-round w3-border">نمایش</button></a>
+</div>
 <br>
 
 
@@ -119,20 +120,7 @@ foreach($this->cats as $option){
 </div>
 
 <br>
-<div class="w3-card-2 w3-round">
-<form method="post" enctype="multipart/form-data" action="change_price/<?php echo $data['id'] ?>">
-<div class="w3-container w3-padding-16">
-<label class="w3-label w3-text-blue"><b>قیمت اصلی</b></label>
-<input class="w3-input w3-border w3-round" type="text" name="old_price"  value="<?php echo $data['old_price'] ?>">
 
-<label class="w3-label w3-text-blue"><b>قیمت با تخفیف</b></label>
-<input class="w3-input w3-border w3-round" type="text" name="price"  value="<?php echo $data['price'] ?>">
-</div>
-<button type="submit" name="change_price" style="margin-top:15px;" class="w3-btn w3-green w3-input round_b" >تغییر قیمت</button>
-
-</form>
-
-</div>
 
 <div class="w3-card-2 w3-round" style="margin-top:10px"><!--tag-->
 <div class="w3-container">

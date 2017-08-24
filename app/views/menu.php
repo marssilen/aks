@@ -14,7 +14,7 @@ $menu_list=$this->model('Menu_m')->get_menu();
             $m=$this->model('Item_m');
             $fid=$m->get_factor(Session::get('id'));
             ?>
-            <li class="w3-right"><a href="<?= URL ?>cp" >مدیریت کاربری</a></li>
+            <li class="w3-right"><a href="<?= URL ?>cp/items/" >مدیریت کاربری</a></li>
             <li class="w3-right"><a href="<?= URL ?>cp/logout">خروج</a></li>
         <?php } ?>
        <!-- <li><a class="w3-hover-none w3-text-black" href="#">Home</a></li> -->

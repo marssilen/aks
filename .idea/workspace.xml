@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ffa77480-bfd1-48bc-a8be-63d367760c3c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/cp/index.php" afterPath="$PROJECT_DIR$/app/views/cp/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,7 +24,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/edit_item/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
@@ -68,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/cp/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="187">
+              <caret line="17" column="69" lean-forward="false" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -141,10 +142,10 @@
         <option value="$PROJECT_DIR$/app/core/App.php" />
         <option value="$PROJECT_DIR$/app/views/cp/users_list.php" />
         <option value="$PROJECT_DIR$/app/controllers/cp.php" />
-        <option value="$PROJECT_DIR$/app/views/cp/index.php" />
         <option value="$PROJECT_DIR$/app/views/cp/panel_master.php" />
         <option value="$PROJECT_DIR$/app/views/item/index.php" />
         <option value="$PROJECT_DIR$/app/views/edit_item/index.php" />
+        <option value="$PROJECT_DIR$/app/views/cp/index.php" />
       </list>
     </option>
   </component>
@@ -507,7 +508,7 @@
       <workItem from="1503335991649" duration="4752000" />
       <workItem from="1503465902616" duration="3479000" />
       <workItem from="1503601488831" duration="4504000" />
-      <workItem from="1503809140371" duration="1593000" />
+      <workItem from="1503809140371" duration="1863000" />
     </task>
     <task id="LOCAL-00001" summary="plus">
       <created>1503811917404</created>
@@ -516,11 +517,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503811917404</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="plus">
+      <created>1503811949643</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1503811949643</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15780000" />
+    <option name="totallyTimeSpent" value="16050000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -807,14 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/cp/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="6" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/menu.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -867,6 +867,14 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/cp/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="17" column="69" lean-forward="false" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
+          <folding />
         </state>
       </provider>
     </entry>

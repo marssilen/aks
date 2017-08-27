@@ -68,8 +68,11 @@ function show_modal(src){
 </div>
 
 
-<!--<div class="w3-blue-grey" style="margin-top:20px">-->
-<!--  فوتر-->
-<!--</div>-->
-</body>
+<div id="footer" class="w3-blue-grey" style="margin-top:20px;margin-bottom: 0px">
+  Follow us on:
+    Instagram
+    Facebook
+    Twitter
+    Telegram
+</div></body>
 </html>

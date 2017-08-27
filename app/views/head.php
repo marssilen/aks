@@ -26,6 +26,15 @@
             text-align: right;
             direction: rtl;
         }
+        #footer{
+            margin: 0px;
+            padding: 0px;
+            height: 150px;
+            border: none;
+        }
+        body{
+            padding-bottom: 0px;
+        }
         a:link, a:visited{
             text-decoration:none;
         }
@@ -43,7 +52,19 @@
         .top-align{
             padding:10px 50px 10px 50px;
         }
-
+        .img_c{
+            overflow: hidden;
+        }
+        .image{
+            width: 100%;
+            overflow: hidden;
+            transition: all .2s ease-in-out;
+        }
+        .image:hover{
+            -ms-transform: scale(1.1); /* IE 9 */
+            -webkit-transform: scale(1.1); /* Safari */
+            transform: scale(1.1);
+        }
 
     </style>
 <!-- <script>

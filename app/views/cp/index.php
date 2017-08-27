@@ -8,14 +8,14 @@
 <div id='{{x.id}}' class="col-sm-3 col-xs-6 w3-padding-16" ng-repeat="x in names">
 
     <a href="<?=URL?>item/{{x.id}}"><div class="w3-round  w3-card-2 w3-center mycard w3-white" style="padding:8px" >
-<div align="right" class="">id:{{x.id}}</div>
+<div align="center" style="height: 20px">{{x.name}}</div>
 <div class="w3-white" style="padding-bottom:0px;padding-left:10px;padding-right:10px">
 <img src="<?= URL ?>public/upload/{{x.card_image}}" style="width:100%;">
 <p align="right" class="font" style="padding:0px">
-{{x.name}}
+
 </p>
-<a class="btn btn-info" href="<?= URL ?>cp/delete_item/{{x.id}}">Delete</a>
-<a class="btn btn-success" href="<?= URL ?>edit_item/{{x.id}}">Edit</a>
+<a class="btn btn-info" href="<?= URL ?>cp/delete_item/{{x.id}}">حذف</a>
+<a class="btn btn-success" href="<?= URL ?>edit_item/{{x.id}}">ویرایش</a>
 </div>
 </div>
     </a>

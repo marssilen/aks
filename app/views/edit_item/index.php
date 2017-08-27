@@ -8,9 +8,11 @@ $images=  $data['image'];
   <?php require_once('app/views/header.php'); ?>
   <?php require_once('app/views/menu.php'); ?>
 <script src="<?= URL ?>public/js/ckeditor/ckeditor.js"></script>
-<div class="w3-card w3-right " style="padding: 5px">
+<div style="margin: 5px;padding: 0px">
+  <div class="w3-card" style="display: inline-block;padding: 5px;">
 <a href="<?= 'delete_item/'.$data['id']; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border">حذف</button></a>
 <a href="<?=URL.'item/'.$data['id']; ?>"><button class="w3-padding-2 w3-btn w3-blue w3-round w3-border">نمایش</button></a>
+</div>
 </div>
 <br>
 

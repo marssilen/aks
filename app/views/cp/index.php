@@ -8,11 +8,7 @@
 <div id='{{x.id}}' class="col-sm-3 col-xs-6 w3-padding-16" ng-repeat="x in names">
 
     <a href="<?=URL?>item/{{x.id}}"><div class="w3-round  w3-card-2 w3-center mycard w3-white" style="padding:8px" >
-<<<<<<< HEAD
 <div align="center" class="">{{x.name}}</div>
-=======
-<div align="center" style="height: 20px">{{x.name}}</div>
->>>>>>> 1d4a1365ecaf14cd9cae362739a8c061b1f54bbc
 <div class="w3-white" style="padding-bottom:0px;padding-left:10px;padding-right:10px">
 <img src="<?= URL ?>public/upload/{{x.card_image}}" style="width:100%;">
 <p align="right" class="font" style="padding:0px">

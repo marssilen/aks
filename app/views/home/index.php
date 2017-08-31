@@ -19,8 +19,8 @@
 <div class="container w3-row" style="padding: 50px">
 <div class="w3-col m3 s12 pad">
 
-        <div class=" w3-card-2 w3-hover-shadow w3-round">
-            <img class="image" src="<?= URL ?>public/profile.png" alt="profile" style="width: 100%">
+        <div class="w3-card-2 w3-round">
+            <img src="<?= URL ?>public/profile.png" alt="profile" style="width: 100%">
             <div class="w3-container w3-center pad">
                 <p>masoud profile</p>
             </div>
@@ -36,7 +36,7 @@
 </div>
 
 </div>
-<div class="w3-white">
+<div class="w3-white w3-hide-small">
 	<div class="w3-row container">
         <div class="w3-col m2">&#xFEFF;</div>
         <?php for($i=1;$i<=4;$i++){?>
@@ -50,7 +50,7 @@
 <div class="w3-row container" style="margin-top: 10px">
     <?php for($i=1;$i<=4;$i++){?>
         <div class="w3-col m3 s6" style="padding: 5px">
-            <div class=" w3-card-2 w3-hover-shadow w3-round">
+            <div class="img_c w3-card-2 w3-hover-shadow w3-round">
                 <img class="image w3-round" src="<?= URL ?>public/upload/image<?=$i?>.png" alt="MIM PHOTOGRAPHY" style="width: 100%">
                 <div class="w3-container w3-center pad">
 
@@ -63,7 +63,7 @@
 <div class="w3-row container" style="margin-top: 10px">
     <?php for($i=1;$i<=4;$i++){?>
         <div class="w3-col m3 s6" style="padding: 5px">
-            <div class=" w3-card-2 w3-hover-shadow w3-round">
+            <div class="img_c w3-card-2 w3-hover-shadow w3-round">
                 <img class="image w3-round" src="<?= URL ?>public/upload/i<?=$i?>.png" alt="MIM PHOTOGRAPHY" style="width: 100%">
                 <div class="w3-container w3-center pad">
                     <p></p>
@@ -77,8 +77,8 @@
 <div class="w3-row container" style="margin-top: 10px">
     <?php for($i=1;$i<=4;$i++){?>
         <div class="w3-col m3 s6" style="padding: 5px">
-            <div class=" w3-card-2 w3-hover-shadow w3-round">
-                <img class="image w3-round" src="<?= URL ?>public/upload/image<?=$i?>.png" alt="MIM PHOTOGRAPHY" style="width: 100%">
+            <div class="img_c w3-card-2 w3-hover-shadow w3-round">
+                <img class=" w3-round" src="<?= URL ?>public/upload/image<?=$i?>.png" alt="MIM PHOTOGRAPHY" style="width: 100%">
                 <div class="w3-container w3-center pad w3">
                     <p></p>
                 </div>

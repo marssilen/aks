@@ -9,6 +9,17 @@ function count($table){
 $result=$this->db->select("SELECT count(*) as count FROM $table");
 return $result[0]['count'];
 }
+function get_settings(){
+    $data=$this->db->select("SELECT * from settings");
+    if(!isset($data[0])){
+        $this->db->insert("settings",array("title"=>"title","meta"=>"meta","about"=>"about","keywords"=>"keywords","description"=>"description"));
+    }
+    $data=$this->db->select("SELECT * from settings");
+    return $data[0];
+}
+function change_settings($title,$about,$meta,$keywords,$description){
+    $this->db->update("settings",array("title"=>$title,"meta"=>$meta,"about"=>$about,"keywords"=>$keywords,"description"=>$description),"id=1");
+}
 function get_all($page,$rows_per_page){
 	$result=$this->db->pagination("SELECT id, name,card_image FROM items ORDER BY id DESC",array(),$page,$rows_per_page);
 	return $result;
@@ -160,7 +171,7 @@ return $id['id'];
 function delete_cat($id){
 $sql="DELETE FROM category WHERE id=$id";
 $result=$this->db->query($sql);
-return $result->rowCount();
+return $result;
 }
 function edit_cat($id,$cat,$pa){
 $sql="UPDATE `category` SET
@@ -194,7 +205,7 @@ $this->arr[]=$row;
 
 $this->stream.='<li pa="'.$row['pa_cat'].'" li_id="'.$row['id'].'">';
 //echo '<li pa="'.$row['pa_cat'].'" li_id="'.$row['id'].'">';
-$this->stream.='<a type="button" class="btn-primary" href="edit_cat/'.$row['id'].'">'.$row['cat'].'</a>'.'<a href="delete_cat/'.$row['id'].'"> delete</a> <a href="" class="add_list_a" data-toggle="modal" data-target="#myModal" pa="'.$row['id'].'">+</a>';
+$this->stream.='<a type="button" style="margin: 5px;padding: 1px 15px 1px 15px" class="add_list_a w3-blue w3-btn w3-round" href="edit_cat/'.$row['id'].'">'.$row['cat'].'</a>'.'<a style="margin: 5px;padding: 1px 15px 1px 15px" class="add_list_a w3-red w3-btn w3-round" href="delete_cat/'.$row['id'].'"> حذف</a> <a href="" style="margin: 5px;padding: 1px 15px 1px 15px" class="add_list_a w3-green w3-btn w3-round" data-toggle="modal" data-target="#myModal" pa="'.$row['id'].'">+</a>';
 //echo $row['cat'].' <a href="" class="add_list_a" data-toggle="modal" data-target="#myModal" pa="'.$row['id'].'">+</a>';
 $this->find_cat_children($row['id']);
 

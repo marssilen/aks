@@ -50,13 +50,13 @@ function delete_item($id=''){
 function delete_cat($id=''){
 	if(isAdmin()){
 		$data=$this->formModel->delete_cat($id);
-		header("Location: '.URL.'show_cat");
+		header("Location: ".URL."cp/show_cat");
 	}
 }
 function add_cat(){
 	if(isAdmin()){
 		$id=$this->formModel->add_cat();
-		header("Location: '.URL.'show_cat");
+		header("Location: ".URL."cp/show_cat");
 	}
 }
 function edit_cat($id){
@@ -111,7 +111,15 @@ $data=$this->formModel->get_address_detail($id);
 print_r($data);
 $this->view('cp/address_detail',$data);
 }
-
+    function settings(){
+        $insert=array('submit','title','about','meta','description','keywords');
+        if(form::check($_POST, $insert,TRUE)){
+//            print_r($_POST);
+            $this->formModel->change_settings($_POST['title'],$_POST['about'],$_POST['meta'],$_POST['keywords'],$_POST['description']);
+        }
+        $data=$this->formModel->get_settings();
+        $this->view('cp/settings',$data,true);
+    }
 function menu(){
 $req=array('id','menu','parent','href','submit');
 if(form::check($_POST, $req,TRUE)){

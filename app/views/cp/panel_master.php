@@ -74,6 +74,7 @@ $('.mother').click(function(e) {
                   <li><a href="<?= display(URL) ?>cp/show_cat"><span class="glyphicon glyphicon-list"></span> دسته بندی ها</a></li>
                   <li><a href="<?= display(URL) ?>cp/s"><span class="glyphicon glyphicon-picture"></span> فایل ها</a></li>
                   <li><a href="<?= display(URL) ?>cp/menu"><span class="glyphicon glyphicon-menu-hamburger"></span> منو ها </a></li>
+                  <li><a href="<?= display(URL) ?>cp/settings"><span class="glyphicon glyphicon-menu-hamburger"></span> تنظیمات </a></li>
                 </ul>
             </li>
             <li>
@@ -83,13 +84,7 @@ $('.mother').click(function(e) {
                 </ul>
             </li>
             <?php } ?>
-            <li>
-                <a class="mother" href="<?= LINK ?>">گزارش <span class="glyphicon glyphicon-chevron-down"></span></a>
-                <ul id="sectionThreeLinks" ><!--style="display: none;"-->
-                  <li><a href="<?= display(URL) ?>cp/profile">پروفایل من</a></li>
-                  <li><a href="<?= display(URL) ?>cp/address">آدرس های من</a></li>
-                </ul>
-            </li>
+
         </ul>
     </div>
 

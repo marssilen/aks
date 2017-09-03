@@ -21,9 +21,6 @@
 
         <div class="w3-card-2 w3-round">
             <img src="<?= URL ?>public/profile.png" alt="profile" style="width: 100%">
-            <div class="w3-container w3-center pad">
-                <p>masoud profile</p>
-            </div>
         </div>
 
  </div>
@@ -51,7 +48,8 @@
     <?php for($i=1;$i<=4;$i++){?>
         <div class="w3-col m3 s6" style="padding: 5px">
             <div class="img_c w3-card-2 w3-hover-shadow w3-round">
-                <img class="image w3-round" src="<?= URL ?>public/upload/image<?=$i?>.png" alt="MIM PHOTOGRAPHY" style="width: 100%">
+                <a href="<?=URL?>item/1"><img class="image w3-round" src="<?= URL ?>public/upload/image<?=$i?>.png" alt="MIM PHOTOGRAPHY" style="width: 100%">
+                </a>
                 <div class="w3-container w3-center pad">
 
                 </div>
@@ -64,10 +62,9 @@
     <?php for($i=1;$i<=4;$i++){?>
         <div class="w3-col m3 s6" style="padding: 5px">
             <div class="img_c w3-card-2 w3-hover-shadow w3-round">
+                <a href="<?=URL?>item/2">
                 <img class="image w3-round" src="<?= URL ?>public/upload/i<?=$i?>.png" alt="MIM PHOTOGRAPHY" style="width: 100%">
-                <div class="w3-container w3-center pad">
-                    <p></p>
-                </div>
+                </a>
             </div>
         </div>
     <?php } ?>
@@ -79,9 +76,6 @@
         <div class="w3-col m3 s6" style="padding: 5px">
             <div class="img_c w3-card-2 w3-hover-shadow w3-round">
                 <img class=" w3-round" src="<?= URL ?>public/upload/image<?=$i?>.png" alt="MIM PHOTOGRAPHY" style="width: 100%">
-                <div class="w3-container w3-center pad w3">
-                    <p></p>
-                </div>
             </div>
         </div>
     <?php } ?>
@@ -95,6 +89,8 @@
   </ul>
 </div>
 </div>
-
+<?php
+require_once ('app/views/footer.php');
+?>
 </body>
 </html>

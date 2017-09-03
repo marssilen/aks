@@ -5,10 +5,10 @@
         <input class="w3-input" type="text" value="<?=$data['title']?>" placeholder="title" id="title" name="title"/>
         <br>
         <label for="about">درباره ی من</label>
-        <textarea class="w3-input name="about" id="about"><?=$data['about']?></textarea>
+        <textarea class="w3-input name=" name="about" id="about"><?=$data['about']?></textarea>
         <br>
-        <label for="meta">متا تگ ها</label>
-        <input class="w3-input type="text" value="<?=$data['meta']?>" placeholder="meta" id="meta" name="meta"/>
+        <label for="logo">آدرس لوگو</label>
+        <input class="w3-input type="text" value="<?=$data['logo']?>" placeholder="logo" id="logo" name="logo"/>
         <br>
         <label for="description">توضیحات وبسایت</label>
         <input class="w3-input type="text" value="<?=$data['description']?>" placeholder="description" id="description" name="description"/>

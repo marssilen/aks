@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="<?php if(isset($data['logo']))echo $data['logo'];else{?>#<?php } ?>"/>
+    <meta name="keywords" content="<?php if(isset($data['keywords']))echo $data['keywords'];else{?>MIM PHOTOGRAPHY<?php } ?>"/>
+    <meta name="description" content="<?php if(isset($data['description']))echo $data['description'];else{?>MIM PHOTOGRAPHY<?php } ?>"/>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="<?= URL ?>public/bootstrap-3.3.6-dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?= URL ?>public/css/w3.css">
@@ -18,7 +21,7 @@
 <script src="<?= URL ?>public/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
 <script src="<?= URL ?>public/myscript.js"></script>
 <script src="<?= URL ?>public/js/header.js.php"></script>
-<title>MIM PHOTOGRAPHY</title>
+<title><?php if(isset($data['title']))echo $data['title'];else{?>MIM PHOTOGRAPHY<?php } ?></title>
     <style>
         .slides{
             display: none;

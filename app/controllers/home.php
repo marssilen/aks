@@ -4,7 +4,8 @@ class Home extends Controller
 	public function index()
 	{
 		$this->is_login= $this->is_login();
-		$this->view('home/index',[]);
+		$data=$this->formModel->get_settings();
+		$this->view('home/index',$data);
 	}
 	// public function load_item($index=''){
 	// 	echo '<html><head>';

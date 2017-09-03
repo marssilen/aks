@@ -28,7 +28,7 @@
     </div>
 <div class="w3-col m8 s12 pad w3-light-grey" style="padding: 14px">
     <p>
-    Eum in mutat expetenda, sea ei dolor fabulas adversarium. Pri sumo honestatis ut, an mutat dicam pertinax duo, has nonumes vivendo ut. No hinc populo impetus vix. Id est primis scripta assueverit. Wisi accusamus forensibus ei nec, id ius hinc expetendis argumentum, ridens intellegebat an vim. Et equidem appellantur vim, et eam diceret electram, delicata volutpat patrioque et est. Ei has postea verterem reprehendunt, no cum causae labitur.
+    <?=$data['about']?>
     </p>
 </div>
 

@@ -112,10 +112,10 @@ print_r($data);
 $this->view('cp/address_detail',$data);
 }
     function settings(){
-        $insert=array('submit','title','about','meta','description','keywords');
+        $insert=array('submit','title','about','logo','description','keywords');
         if(form::check($_POST, $insert,TRUE)){
 //            print_r($_POST);
-            $this->formModel->change_settings($_POST['title'],$_POST['about'],$_POST['meta'],$_POST['keywords'],$_POST['description']);
+            $this->formModel->change_settings($_POST['title'],$_POST['about'],$_POST['logo'],$_POST['keywords'],$_POST['description']);
         }
         $data=$this->formModel->get_settings();
         $this->view('cp/settings',$data,true);

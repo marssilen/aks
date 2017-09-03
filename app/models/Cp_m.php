@@ -12,13 +12,13 @@ return $result[0]['count'];
 function get_settings(){
     $data=$this->db->select("SELECT * from settings");
     if(!isset($data[0])){
-        $this->db->insert("settings",array("title"=>"title","meta"=>"meta","about"=>"about","keywords"=>"keywords","description"=>"description"));
+        $this->db->insert("settings",array("title"=>"title","logo"=>"#","about"=>"about","keywords"=>"keywords","description"=>"description"));
     }
     $data=$this->db->select("SELECT * from settings");
     return $data[0];
 }
-function change_settings($title,$about,$meta,$keywords,$description){
-    $this->db->update("settings",array("title"=>$title,"meta"=>$meta,"about"=>$about,"keywords"=>$keywords,"description"=>$description),"id=1");
+function change_settings($title,$about,$logo,$keywords,$description){
+    $this->db->update("settings",array("title"=>$title,"logo"=>$logo,"about"=>$about,"keywords"=>$keywords,"description"=>$description),"id=1");
 }
 function get_all($page,$rows_per_page){
 	$result=$this->db->pagination("SELECT id, name,card_image FROM items ORDER BY id DESC",array(),$page,$rows_per_page);

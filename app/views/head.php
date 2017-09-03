@@ -6,7 +6,7 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="<?= URL ?>public/bootstrap-3.3.6-dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?= URL ?>public/css/w3.css">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!--<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">-->
 <link rel="stylesheet" href="<?= URL ?>public/css/mycss.css">
 
@@ -20,6 +20,22 @@
 <script src="<?= URL ?>public/js/header.js.php"></script>
 <title>MIM PHOTOGRAPHY</title>
     <style>
+        .slides{
+            display: none;
+        }
+        div.scrollmenu{
+            background-color: #333;
+            overflow: auto;
+            white-space: nowrap;
+            padding: 8px;
+        }
+        div.scrollmenu img{
+            transition: all .2s ease-in-out;
+        }
+        div.scrollmenu img:hover,img:focus{
+            cursor: pointer;
+            transform: scale(0.8);
+        }
         body,h3{
             font-family: 'Yekan' ;
             /*font-size: 15px;*/
@@ -66,10 +82,38 @@
             transform: scale(1.1);
         }
 
+
+        .fa {
+            padding: 10px;
+            font-size: 30px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 6px 2px;
+            border-radius: 50%;
+        }
+
+        .fa:hover {
+            /*opacity: 0.7;*/
+            color: black;
+            /*box-shadow: yellow 10px;*/
+        }
+        .fa-telegram {
+            background: #fff;
+            color: #00aff0;
+        }
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
     </style>
-<!-- <script>
-$(function(){
-// $(".image").height($("#image").width()*9/16);
-});
-</script> -->
 </head>

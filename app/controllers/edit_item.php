@@ -38,8 +38,8 @@ class Edit_item extends ControllerPanel
 		$this->check_id($id);
 		if(isset($_POST['add_image'])){
 			$formModel=$this->model('Edit_item_m');
-			$imagename=	$this->upload_a_file();
-                        echo $imagename;
+            $imagename=	$this->upload_a_file();
+            echo $imagename;
 			$formModel->add_image($id,$imagename);
 			header("Location: ../$id");
 		}

@@ -72,7 +72,7 @@ $('.mother').click(function(e) {
                 <ul id="sectionOneLinks">
                   <li><a href="<?= display(URL) ?>cp/items/"><span class="glyphicon glyphicon-th"></span> عکس ها</a></li>
                   <li><a href="<?= display(URL) ?>cp/show_cat"><span class="glyphicon glyphicon-list"></span> دسته بندی ها</a></li>
-                  <li><a href="<?= display(URL) ?>cp/s"><span class="glyphicon glyphicon-picture"></span> فایل ها</a></li>
+                  <li><a href="<?= display(URL) ?>cp/files"><span class="glyphicon glyphicon-picture"></span> فایل ها</a></li>
                   <li><a href="<?= display(URL) ?>cp/menu"><span class="glyphicon glyphicon-menu-hamburger"></span> منو ها </a></li>
                   <li><a href="<?= display(URL) ?>cp/settings"><span class="glyphicon glyphicon-cog"></span> تنظیمات </a></li>
                 </ul>

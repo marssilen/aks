@@ -125,10 +125,12 @@ class Upload {
 	$nospaces = str_replace(' ', '_', $name);
 	$dot = strrpos($nospaces, '.');
 		if ($dot) {
-		  $base = 'a';
+//		  $base = 'a';
+		  $base =substr($nospaces, 0,$dot);
 		  $extension = substr($nospaces, $dot);
 		} else {
-		  $base ='a';
+//		  $base ='a';
+		  $base =$nospaces;
 		  $extension = '';
 		}
 		$nospaces=$base.$extension;

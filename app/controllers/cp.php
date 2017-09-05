@@ -14,21 +14,23 @@ public function files($page=1){
     $row=20;
     $index=($page-1)*$row;
     $max=($page)*$row;
-    echo '<pre>';
+//    echo '<pre>';
     $directory = 'public/upload/';
     $scanned_directory = array_diff(scandir($directory,1), array('..', '.'));
     if(count($scanned_directory)<$index+$row){
         $max=count($scanned_directory);
     }
     for($i=$index;$i<$max;$i++){
-        echo $scanned_directory[$i]."\n";
+//        echo $scanned_directory[$i]."\n";
+        $data[]=$scanned_directory[$i]."\n";
     }
     if(count($scanned_directory)%$row==0){
         $pages = count($scanned_directory) / $row ;
     }else {
         $pages = count($scanned_directory) / $row + 1;
     }
-    echo create_pview($pages);
+    $pview=create_pview($pages);
+    $this->view('cp/files',['data'=>$data,'pview'=>$pview],true);
 //    print_r($scanned_directory);
 }
 public function index(){

@@ -16,7 +16,7 @@ class Login extends Controller
 	}
 	private function signin($username,$password){
 		if($this->formModel->signin($username,$password)){
-            header('location: '.URL.'cp');
+            header('location: '.URL.'cp/items/');
 		}else{
             header('location: '.URL);
 		}

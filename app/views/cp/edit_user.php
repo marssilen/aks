@@ -42,4 +42,8 @@
       </div>
     </div>
   </form>
+    <form class="form-horizontal" role="form" method="post" action="">
+        <button name="reset_pass" value="reset_pass" type="submit" class="btn btn-default">ریست رمز به پیش فرض</button>
+        <label>default password is:password</label>
+    </form>
 </div>

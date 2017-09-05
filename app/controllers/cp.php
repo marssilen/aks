@@ -16,7 +16,7 @@ $this->items();
 public function items($pageno=1)
 {
 	if(isAdmin()){
-		$rows_per_page=12;
+		$rows_per_page=8;
 		$data=$this->formModel->get_all($pageno,$rows_per_page);
 		$pview=$this->formModel->get_pview('items',$pageno,$rows_per_page);
 		$this->view('cp/index',['data'=>$data,'pview'=>$pview],true);
@@ -153,11 +153,14 @@ function edit_user($id){
 
 if(isset($id)){
 
-if(isset($_POST['sub']) and $_POST['sub']=='submit'){
+if(isset($_POST['sub'])){
 //print_r($_POST);
-$this->formModel->edit_user($id,array('password'=>htmlentities($_POST['pass']),'email'=>htmlentities($_POST['email']),
+$this->formModel->edit_user($id,array('email'=>htmlentities($_POST['email']),
 'phone'=>htmlentities($_POST['tel']),'role'=>htmlentities($_POST['role']),
 'block'=>htmlentities($_POST['block'])));
+}
+if(isset($_POST['reset_pass'])){
+    $this->formModel->edit_user($id,array('password'=>sha1(htmlentities("password"))));
 }
 $data=$this->formModel->get_user($id);
 //print_r($data);

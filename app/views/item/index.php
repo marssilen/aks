@@ -43,10 +43,10 @@
 //        $images=$data['image'];
 //        foreach ($images as $image) {?>
 <!--            <div class="slides">-->
-                <img id="img-slide" class="" alt="MIM PHOTOGRAPHY" style="width: 100%;max-height: 600px" src="<?= URL.'public/upload/a.png'?>"/>
+                <img id="img-slide" class="" alt="MIM PHOTOGRAPHY" style="width: 500px;max-height: 700px" src="<?= URL.'public/upload/'.$data['image'][0]['image']?>"/>
 <!--            </div>-->
 <!--        --><?php //} ?>
-        <p style="margin-top: 10px">Some text in the Modal..</p>
+        <p style="margin-top: 10px"></p>
 
         </div>
         <div class="scrollmenu">

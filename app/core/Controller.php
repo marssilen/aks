@@ -2,8 +2,11 @@
 class Controller
 {
 	protected $formModel;
+    public $settings;
 	protected $is_login;
 	function __construct(){
+	    $settings_m=$this->model('Settings_m');
+        $this->settings=$settings_m->get();
 		$this->formModel=$this->model(get_class($this).'_m');
 		$this->is_login= $this->is_login();
 	}

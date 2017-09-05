@@ -1,22 +1,18 @@
 <?php
 class Home extends Controller
 {
-	public function index()
+	public function index($pageno=1)
 	{
 		$this->is_login= $this->is_login();
-		$data=$this->formModel->get_settings();
-		$this->view('home/index',$data);
+        $settings=$this->formModel->get_settings();
+        $rows_per_page=16;
+        $items=$this->formModel->get_all($pageno,$rows_per_page);
+        $pview=$this->formModel->get_pview('items',$pageno,$rows_per_page);
+        $this->view('home/index',['settings'=>$settings,'items'=>$items,'pview'=>$pview],true);
+//        echo '<pre>';
+//        print_r($items);
+//        echo '</pre>';
+//        echo $pview;
+//		$this->view('home/index',$data);
 	}
-	// public function load_item($index=''){
-	// 	echo '<html><head>';
-	// 	require_once('app/views/head.php');
-	// 	echo '</head><body>';
-	// 	$files=new DirectoryIterator('public/th/');
-	// 	foreach ($files as $file) {
-	// 	  if($file=='.'||$file=='..')
-	// 	  continue;
-	// 	  echo('<div class="w3-col l2 m3 s6" style="padding:16px"><div style="padding:6px" class="mycard w3-card-2 w3-round"><img style="width:100%" src="'.URL.'public/th/'.$file.'" >'.$file.'</div></div>');
-	// 	}
-	// 	echo '</body></html>';
-	// }
 }

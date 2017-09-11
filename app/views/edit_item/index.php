@@ -3,7 +3,6 @@
 $images=  $data['image'];
 ?>
 <?php require_once('app/views/head.php'); ?>
-
 <body>
   <?php require_once('app/views/header.php'); ?>
   <?php require_once('app/views/menu.php'); ?>
@@ -102,6 +101,34 @@ foreach($images as $image){
 
 </div>
 <br>
+    <div class="w3-card-2  w3-round">
+    <form method="post" action="change_size/<?= $data['id'] ?>">
+        <label for="auto_size">auto</label> <input id="auto_size" type="radio" name="size" value="auto" checked>
+        <label for="static_size">static</label> <input id="static_size" type="radio" name="size" value="static" <?php if($data['width']!='100%')echo'checked';?>>
+        <br>
+        width:<input name="width" id="img_width" type="number" class="w3-input" style="padding: 5px;width: 100px" placeholder="عرض" required value="<?= str_replace("px","",$data['width']) ?>">
+        height:<input name="height" id="img_height" type="number" class="w3-input" style="padding5px;width:100px" placeholder="ارتفاع" required value="<?= str_replace("px","",$data['height']) ?>"><br>
+        <button type="submit" name="change_size" style="margin-top:15px;" class="w3-btn w3-green w3-input round_b" >تغییر</button>
+        <script>
+            $(document).ready(function () {
+                $("#auto_size").change(function () {
+                    $("#img_height").attr("disabled", true);
+                    $("#img_width").attr("disabled", true);
+                });
+                $("#static_size").change(function () {
+                    $("#img_height").attr("disabled", false);
+                    $("#img_width").attr("disabled", false);
+                });
+                var is_auto=document.getElementById("auto_size");
+                if(is_auto.checked) {
+                    $("#img_height").attr("disabled", true);
+                    $("#img_width").attr("disabled", true);
+                }
+            });
+
+        </script>
+    </form>
+    </div>
 <div class="w3-card-2  w3-round">
   <div class="w3-container w3-padding">
 <label class="w3-label w3-text-blue"><b>دسته بندی</b></label>

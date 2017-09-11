@@ -74,7 +74,6 @@ class Edit_item extends ControllerPanel
 			header("Location: ../$id");
 
 		}
-
 	}
 	function change_name($id){
 		$this->check_id($id);
@@ -84,6 +83,24 @@ class Edit_item extends ControllerPanel
 			header("Location: ../$id");
 		}
 	}
+    function change_size($id){
+        $this->check_id($id);
+        if(isset($_POST['change_size'])){
+            if($_POST['size']=='auto'){
+                $width='100%';
+                $height='auto';
+                $this->formModel->change_size($id,$width,$height);
+            }else{
+                $width=$_POST['width'].'px';
+                $height=$_POST['height'].'px';
+                $this->formModel->change_size($id,$width,$height);
+            }
+
+            echo '<pre>';
+            print_r($_POST);
+//            header("Location: ../$id");
+        }
+    }
 
 	function change_price($id){
 		$this->check_id($id);

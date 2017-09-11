@@ -44,7 +44,7 @@
                 </div>
                 <div class="w3-col s6 w3-yellow">
                 <p class="w3-center" style="padding: 5px">
-                    &U#32;
+                    &ensp;
                 </p>
                 </div>
             </div>
@@ -59,7 +59,7 @@
             </div>
             <div class="w3-col s6">
                 <p class="w3-center" style="padding: 5px">
-                    &U#32;
+                    &ensp;
                 </p>
             </div>
         </div>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="w3-col s6 w3-yellow">
                 <p class="w3-center" style="padding: 5px">
-                    &U#32;
+                    &ensp;
                 </p>
                 </div>
             </div>
@@ -89,7 +89,7 @@
             </div>
             <div class="w3-col s6">
                 <p class="w3-center" style="padding: 5px">
-                    &U#32;
+                    &ensp;
                 </p>
             </div>
         </div>

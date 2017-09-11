@@ -24,6 +24,9 @@ class Edit_item_m extends Model
 		$result=$this->db->query($sql);
 		return $result->rowCount();
 	}
+	function change_size($id,$width,$height){
+        return $this->db->update('items',array('width'=>$width,'height'=>$height),"id=$id");
+    }
 	function show($id){
 		return $this->db->select('select * from items where id=:id',array('id'=>$id));
 	}

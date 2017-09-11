@@ -38,13 +38,13 @@
     <div class="mymodal-content">
         <span class="myclose">&times;</span>
         <div style="clear: both"></div>
-        <div style="max-width:1200px;margin: auto;">
+        <div style="max-width:1200px;margin: auto;" class="">
 <!--        --><?php
 //        $images=$data['image'];
 //        foreach ($images as $image) {?>
-<!--            <div class="slides">-->
-                <img id="img-slide" class="" alt="MIM PHOTOGRAPHY" style="width: 500px;max-height: 700px" src="<?= URL.'public/upload/'.$data['image'][0]['image']?>"/>
-<!--            </div>-->
+            <center>
+                <img id="img-slide" class="" alt="MIM PHOTOGRAPHY" style="width: <?=$data['width']?>;max-height: <?=$data['height']?>" src="<?= URL.'public/upload/'.$data['image'][0]['image']?>"/>
+            </center>
 <!--        --><?php //} ?>
         <p style="margin-top: 10px"></p>
 

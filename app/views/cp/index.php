@@ -8,9 +8,9 @@
 <div id='{{x.id}}' class="col-sm-3 col-xs-6 w3-padding-16" ng-repeat="x in names">
 
     <a href="<?=URL?>item/{{x.id}}"><div class="w3-round  w3-card-2 w3-center mycard w3-white" style="padding:8px" >
-<div align="center" class="">{{x.name}}</div>
-<div class="w3-white" style="padding-bottom:0px;padding-left:10px;padding-right:10px">
-<img src="<?= URL ?>public/upload/{{x.card_image}}" style="width:100%;">
+<div align="center" class="">&ensp;{{x.name}}</div>
+<div class="w3-white" style="padding-bottom:0px;padding-left:10px;padding-right:10px;">
+<img src="<?= URL ?>public/upload/{{x.card_image}}" style="width:100%;max-height: 150px;">
 <p align="right" class="font" style="padding:0px">
 
 </p>

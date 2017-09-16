@@ -8,13 +8,14 @@
 <link rel="stylesheet" href="<?= display(URL) ?>public/bootstrap-3.3.6-dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?= display(URL) ?>public/w3.css">
 <link rel="stylesheet" href="<?= display(URL) ?>public/mycss.css">
+    <link rel="stylesheet" href="<?= display(URL) ?>public/css/mycss.css">
 <link rel="stylesheet" href="<?= display(URL) ?>public/font/font.css">
 <!-- jQuery library -->
 <script src="<?= display(URL) ?>public/bootstrap-3.3.6-dist/js/jquery.min.js"></script>
 
 <!-- Latest compiled JavaScript -->
 <script src="<?= display(URL) ?>public/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-<script src="<?= display(URL) ?>public/myscript.js"></script>
+<script src="<?= display(URL) ?>public/js/myscript.js"></script>
 <!-- AngularJS -->
 <script src="<?= display(URL) ?>public/js/angular.min.js"></script>
 <style>
@@ -70,7 +71,8 @@ $('.mother').click(function(e) {
             <li>
                 <a class="mother" href="<?= LINK ?>">میز کار <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionOneLinks">
-                  <li><a href="<?= display(URL) ?>cp/items/"><span class="glyphicon glyphicon-th"></span> عکس ها</a></li>
+                    <li><a href="<?= display(URL) ?>cp/home_page/"><span class="glyphicon glyphicon-th"></span> home page</a></li>
+                    <li><a href="<?= display(URL) ?>cp/items/"><span class="glyphicon glyphicon-th"></span> عکس ها</a></li>
                   <li><a href="<?= display(URL) ?>cp/show_cat"><span class="glyphicon glyphicon-list"></span> دسته بندی ها</a></li>
                   <li><a href="<?= display(URL) ?>cp/files/"><span class="glyphicon glyphicon-picture"></span> فایل ها</a></li>
                   <li><a href="<?= display(URL) ?>cp/menu"><span class="glyphicon glyphicon-menu-hamburger"></span> منو ها </a></li>

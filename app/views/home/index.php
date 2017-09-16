@@ -35,68 +35,29 @@
 
 
 <div class="w3-row container" style="margin-top: 10px">
-        <div class="w3-col m6 s6" style="padding: 5px" >
+    <?php
+    foreach($data['items'] as $card){?>
+        <div class="w3-col m6 s6" style="padding: 5px">
             <div class="img_c w3-card-2 w3-hover-shadow w3-round w3-row">
                 <div class="w3-col s6">
-                <a href="<?=URL?>item/12">
-                <img class="image w3-round" src="<?= URL ?>public/award2.jpg" alt="MIM PHOTOGRAPHY" style="width: 100%">
-                </a>
+                    <a href="<?=URL?>items/<?=$card['url_cat']?>">
+                        <img class="" src="<?= URL ?>public/<?=$card['image']?>" alt="MIM PHOTOGRAPHY" style="width: 100%">
+                    </a>
                 </div>
                 <div class="w3-col s6 w3-yellow">
-                <p class="w3-center" style="padding: 5px">
-                    &ensp;
-                </p>
+                    <p class="w3-center" style="padding: 5px">
+                        &ensp;<?=$card['description']?>
+                    </p>
                 </div>
             </div>
         </div>
-
-    <div class="w3-col m6 s6" style="padding: 5px">
-        <div class="img_c w3-card-2 w3-hover-shadow w3-round w3-row">
-            <div class="w3-col s6">
-                <a href="<?=URL?>item/12">
-                    <img class="image w3-round" src="<?= URL ?>public/award2.jpg" alt="MIM PHOTOGRAPHY" style="width: 100%">
-                </a>
-            </div>
-            <div class="w3-col s6">
-                <p class="w3-center" style="padding: 5px">
-                    &ensp;
-                </p>
-            </div>
-        </div>
-    </div>
-</div><div class="w3-row container" style="margin-top: 10px">
-        <div class="w3-col m6 s6" style="padding: 5px" >
-            <div class="img_c w3-card-2 w3-hover-shadow w3-round w3-row">
-                <div class="w3-col s6">
-                <a href="<?=URL?>item/12">
-                <img class="image w3-round" src="<?= URL ?>public/award2.jpg" alt="MIM PHOTOGRAPHY" style="width: 100%">
-                </a>
-                </div>
-                <div class="w3-col s6 w3-yellow">
-                <p class="w3-center" style="padding: 5px">
-                    &ensp;
-                </p>
-                </div>
-            </div>
-        </div>
-
-    <div class="w3-col m6 s6" style="padding: 5px">
-        <div class="img_c w3-card-2 w3-hover-shadow w3-round w3-row">
-            <div class="w3-col s6">
-                <a href="<?=URL?>item/12">
-                    <img class="image w3-round" src="<?= URL ?>public/award2.jpg" alt="MIM PHOTOGRAPHY" style="width: 100%">
-                </a>
-            </div>
-            <div class="w3-col s6">
-                <p class="w3-center" style="padding: 5px">
-                    &ensp;
-                </p>
-            </div>
-        </div>
-    </div>
+    <?php
+    }
+    ?>
 </div>
+
 <div class="container w3-center">
-  <?=$data['pview']?>
+<!--  --><?//=$data['pview']?>
 </div>
 </div>
 <?php

@@ -14,8 +14,8 @@
 <p align="right" class="font" style="padding:0px">
 
 </p>
-<a class="btn btn-info" href="<?= URL ?>cp/delete_item/{{x}}">حذف</a>
-<a class="btn btn-success" href="<?= URL ?>edit_item/{{x}}">ویرایش</a>
+<a class="btn btn-info" href="<?= URL ?>cp/delete_file/{{x}}">حذف</a>
+<a class="btn btn-success" href="<?= URL ?>cp/edit_file/{{x}}">edit</a>
 </div>
 </div>
     </a>

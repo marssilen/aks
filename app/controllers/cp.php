@@ -10,7 +10,30 @@ Session::destroy();
 header('location: '.URL);
 exit;
 }
-public function files($page=1){
+public function delete_file($filename){
+    if(Session::get('role')=='admin'){
+        echo unlink('public/upload/'.$filename);
+        header("Location: ".URL."cp/files/");
+    }
+}public function edit_file($filename){
+    if(Session::get('role')=='admin'){
+//        echo unlink('public/upload/'.$filename);
+//        header("Location: ".URL."cp/files/");
+        $this->view('cp/edit_file',['filename'=>htmlentities($filename)],true);
+    }
+}
+public function rename_file($filename,$newName){
+    if(Session::get('role')=='admin'){
+        echo rename('public/upload/'.$filename,'public/upload/'.$newName);
+        header("Location: ".URL."cp/files/");
+    }
+}
+public function home_page()
+{
+    $this->view('cp/home_page',[''],true);
+}
+
+    public function files($page=1){
     $row=20;
     $index=($page-1)*$row;
     $max=($page)*$row;

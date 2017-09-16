@@ -5,10 +5,8 @@ class Home extends Controller
 	{
 		$this->is_login= $this->is_login();
         $settings=$this->formModel->get_settings();
-        $rows_per_page=16;
-        $items=$this->formModel->get_all($pageno,$rows_per_page);
-        $pview=$this->formModel->get_pview('items',$pageno,$rows_per_page);
-        $this->view('home/index',['settings'=>$settings,'items'=>$items,'pview'=>$pview],true);
+        $items=$this->formModel->get_all();
+        $this->view('home/index',['settings'=>$settings,'items'=>$items]);
 //        echo '<pre>';
 //        print_r($items);
 //        echo '</pre>';

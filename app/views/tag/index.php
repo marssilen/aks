@@ -32,18 +32,6 @@
 </div>
 
 </div>
-<div class="w3-white w3-hide-small">
-	<div class="w3-row container">
-        <div class="w3-col m2">&#xFEFF;</div>
-        <?php for($i=1;$i<=4;$i++){?>
-        <div class="w3-col m2">
-            <img class="image" src="<?= URL ?>public/award<?=$i?>.jpg" alt="award" style="width: 100%">
-        </div>
-        <?php } ?>
-        <div class="w3-col m2">&#xFEFF;</div>
-	</div>
-</div>
-
 <div class="w3-row container" style="margin-top: 10px">
     <?php foreach ($data['items'] as $item) {?>
         <div class="w3-col m3 s6" style="padding: 5px">
@@ -52,31 +40,14 @@
                 <img class="image w3-round" src="<?= URL ?>public/upload/<?=$item['card_image']?>" alt="MIM PHOTOGRAPHY" style="width: 100%">
                 </a>
                 <p class="w3-center" style="padding: 5px">
-                    &U#32;<?=$item['name']?>
+                    &ensp;<?=$item['name']?>
                 </p>
             </div>
         </div>
     <?php } ?>
 
 </div>
-
-<!--<div class="w3-row container" style="margin-top: 10px">-->
-<!--    --><?php //for($i=1;$i<=4;$i++){?>
-<!--        <div class="w3-col m3 s6" style="padding: 5px">-->
-<!--            <div class="img_c w3-card-2 w3-hover-shadow w3-round">-->
-<!--                <img class=" w3-round" src="--><?//= URL ?><!--public/upload/image--><?//=$i?><!--.png" alt="MIM PHOTOGRAPHY" style="width: 100%">-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    --><?php //} ?>
-<!---->
-<!--</div>-->
 <div class="w3-white w3-padding-16">
-<!--<div class="container w3-center">-->
-<!--  <ul class="w3-pagination">-->
-<!--      <li><a href="#">Back</a></li>-->
-<!--      <li><a href="#">Next</a></li>-->
-<!--  </ul>-->
-<!--</div>-->
 <div class="container w3-center">
   <?=$data['pview']?>
 </div>

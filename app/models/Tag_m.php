@@ -8,7 +8,7 @@ class Tag_m extends Model
 		return $this->db->select("SELECT * FROM items WHERE id= :id",array('id' => $id));
 	}
 	function getTagItems($tag){
-        return $this->db->select("SELECT items.id,items.name,items.long_description FROM tag JOIN items ON tag.itemid=items.id WHERE tag.tag=:tag",array('tag' => $tag));
+        return $this->db->select("SELECT items.id,items.name,items.long_description,items.card_image FROM tag JOIN items ON tag.itemid=items.id WHERE tag.tag=:tag",array('tag' => $tag));
     }
     function getTagPages($tag){
         return $this->db->select("SELECT page.id,page.title,page.content FROM tag JOIN page ON tag.pageid=page.id WHERE tag.tag=:tag",array('tag' => $tag));

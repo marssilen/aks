@@ -37,9 +37,9 @@
         <div class="w3-col m3 s6" style="padding: 5px">
             <div class="img_c w3-card-2 w3-hover-shadow w3-round">
                 <a href="<?=URL?>item/<?=$item['id']?>">
-                <img class="image w3-round" src="<?= URL ?>public/upload/<?=$item['card_image']?>" alt="MIM PHOTOGRAPHY" style="width: 100%">
+                <img src="<?= URL ?>public/upload/<?=$item['card_image']?>" alt="MIM PHOTOGRAPHY" style="width: 100%">
                 </a>
-                <p class="w3-center" style="padding: 5px">
+                <p class="w3-center" style="margin-top: 10px;">
                     &ensp;<?=$item['name']?>
                 </p>
             </div>

@@ -34,23 +34,29 @@
 </div>
 
 
-<div class="w3-row container" style="margin-top: 10px">
+<div class="container" style="margin-top: 10px">
     <?php
-    foreach($data['items'] as $card){?>
-        <div class="w3-col m6 s6" style="padding: 5px">
-            <div class="img_c w3-card-2 w3-hover-shadow w3-round w3-row">
-                <div class="w3-col s6">
-                    <a href="<?=URL?>items/<?=$card['url_cat']?>">
-                        <img class="" src="<?= URL ?>public/<?=$card['image']?>" alt="MIM PHOTOGRAPHY" style="width: 100%">
-                    </a>
+    $count=0;
+    foreach($data['items'] as $card){$count++;?>
+        <?php if($count%2==0)echo' <div class="w3-row">'; ?>
+    <a href="<?=URL?>tag/<?=$card['url_cat']?>">
+        <div class="w3-col m6 s12 w3-row" style="padding: 5px;">
+            <div class="img_c w3-card-2 w3-hover-shadow w3-round">
+                <div class="w3-col l6">
+                    <img class="" src="<?= URL ?>public/upload/<?=$card['image']?>" alt="MIM PHOTOGRAPHY" style="width: 100%">
                 </div>
-                <div class="w3-col s6 w3-yellow">
-                    <p class="w3-center" style="padding: 5px">
+                <div class="w3-col l6">
+                <h5 class="w3-center w3-grey" style="margin: 0px;padding: 10px"><?=$card['title']?></h5>
+                <div style="padding: 10px">
+                    <p class="" >
                         &ensp;<?=$card['description']?>
                     </p>
                 </div>
+                </div>
             </div>
         </div>
+    </a>
+    <?php if($count%2==0)echo'</div>'; ?>
     <?php
     }
     ?>

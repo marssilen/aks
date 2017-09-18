@@ -5,10 +5,28 @@ class Cp_m extends Model
 function __construct(){
 parent::__construct();
 }
+
 function count($table){
 $result=$this->db->select("SELECT count(*) as count FROM $table");
 return $result[0]['count'];
 }
+    function home_get_all(){
+        $result=$this->db->select("SELECT home_page.id,home_page.description,home_page.image,home_page.title,
+home_page.url_cat, category.cat FROM home_page LEFT JOIN category ON home_page.url_cat=category.id");
+        return $result;
+    }
+    function change_home_item($data=array()){
+        $this->db->update("home_page",array("title"=>$_POST['title'],"description"=>$_POST['description'],'url_cat'=>$_POST['cat']),"id=".$_POST['id']);
+    }
+    function home_pic($id,$image){
+        $this->db->update("home_page",array("image"=>$image),"id=".$id);
+    }
+    function delete_home($id){
+        $this->db->delete('home_page',"id=$id");
+    }
+    function insert_home(){
+        $this->db->insert("home_page",array('title'=>''));
+    }
 function get_settings(){
     $data=$this->db->select("SELECT * from settings");
     if(!isset($data[0])){

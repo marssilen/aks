@@ -1,6 +1,9 @@
+IndexOptions +Charset=UTF-8
 Options -MultiViews
 RewriteEngine On
 RewriteBase /aks/
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.+[a-z,A-Z,0-9,ễ].+)$ index.php?url=$1 [L]
+
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]

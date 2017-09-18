@@ -2,7 +2,7 @@
 <div class="w3-white container center" >
 <div class="w3-row">
 <div class="" align="center"><!--left images-->
-<a class="btn btn-info w3-margin-16" href="<?= URL ?>cp/add_item">افزودن عکس</a>
+    <button onclick="document.getElementById('add_card_image_modal').style.display='block'" class="btn btn-info w3-margin-16">افزودن عکس</button>
 <div ng-app="myApp" ng-controller="myCtrl">
 <div class="row w3-margin-16">
 <div id='{{x}}' class="col-sm-3 col-xs-6 w3-padding-16" ng-repeat="x in names">
@@ -33,4 +33,22 @@ app.controller('myCtrl', function($scope) {
 </div>
 </div>
 </div>
+</div>
+
+<div id="add_card_image_modal" class="w3-modal">
+    <div class="w3-modal-content">
+        <header class="w3-container w3-white">
+      <span onclick="document.getElementById('add_card_image_modal').style.display='none'"
+            class="w3-closebtn">&times;</span>
+            <h2>Add image</h2>
+        </header>
+        <div class="w3-container">
+            <form method="post" enctype="multipart/form-data" action="">
+                <input name="image" type="file" id="image_upload" >
+                <button type="submit" name="add_card_image" class="w3-btn w3-red"  style="display:block;width:100%" >add</button>
+            </form>
+
+        </div>
+
+    </div>
 </div>

@@ -19,7 +19,7 @@ class Home_m extends Model
         return $data[0];
     }
     function get_all(){
-        $result=$this->db->select("SELECT * FROM home_page");
+        $result=$this->db->select("SELECT * FROM home_page LEFT JOIN category ON home_page.url_cat=category.id");
         return $result;
     }
 }

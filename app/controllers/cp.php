@@ -1,6 +1,7 @@
 <?php
 class Cp extends ControllerPanel
 {
+    protected $max_file_size=9999999;
 	function view($page,$data=array(),$secure=false){
         $this->page=$page;
         parent::view('cp/panel_master',$data,$secure);
@@ -30,10 +31,48 @@ public function rename_file($filename,$newName){
 }
 public function home_page()
 {
-    $this->view('cp/home_page',[''],true);
-}
+    if(Session::get('role')=='admin') {
+        $req= array('id','change','description','title','cat');
+        if(form::check($_POST,$req,true)) {
+            $this->formModel->change_home_item($_POST);
+        }
+        $req= array('id','delete');
+        if(form::check($_POST,$req)) {
+            $this->formModel->delete_home($_POST['id']);
+        }
+        $req= array('insert');
+        if(form::check($_POST,$req,true)) {
+            $this->formModel->insert_home();
+        }
+        $req= array('id','pic');
+        if(form::check($_POST,$req,false)) {
+            $imagename=	$this->upload_a_file();
+            $this->formModel->home_pic($_POST['id'],$imagename);
+        }
+        $data = $this->formModel->home_get_all();
+        $cats=$this->formModel->get_all_cat();
+        $this->view('cp/home_page', ['data' => $data,'cats'=>$cats], true);
 
+    }
+}
+    private function upload_a_file(){
+        $destination = 'public/upload/';
+        $upload = new Upload($destination);
+        try {
+            $upload->setMaxSize($this->max_file_size);
+            $upload->move();
+            $result_upload = $upload->getMessages();
+            $imagename=$upload->get_imagename();
+            return $imagename;
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+    }
     public function files($page=1){
+        if(isset($_POST['add_card_image'])){
+            $imagename=	$this->upload_a_file();
+//            $this->formModel->add_card_image($_POST['id'],$imagename);
+        }
     $row=20;
     $index=($page-1)*$row;
     $max=($page)*$row;

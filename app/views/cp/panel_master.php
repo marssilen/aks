@@ -71,7 +71,7 @@ $('.mother').click(function(e) {
             <li>
                 <a class="mother" href="<?= LINK ?>">میز کار <span class="glyphicon glyphicon-chevron-down"></span></a>
                 <ul id="sectionOneLinks">
-                    <li><a href="<?= display(URL) ?>cp/home_page/"><span class="glyphicon glyphicon-th"></span> home page</a></li>
+                    <li><a href="<?= display(URL) ?>cp/home_page/"><span class="glyphicon glyphicon-th"></span> صفحه ی اصلی</a></li>
                     <li><a href="<?= display(URL) ?>cp/items/"><span class="glyphicon glyphicon-th"></span> عکس ها</a></li>
                   <li><a href="<?= display(URL) ?>cp/show_cat"><span class="glyphicon glyphicon-list"></span> دسته بندی ها</a></li>
                   <li><a href="<?= display(URL) ?>cp/files/"><span class="glyphicon glyphicon-picture"></span> فایل ها</a></li>

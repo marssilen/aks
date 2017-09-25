@@ -42,11 +42,11 @@ class Edit_item_m extends Model
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 		return $result->fetchAll();
 	}
-	function add_image($id,$new_image){
+	function add_image($id,$new_image,$alt){
 		if(empty($new_image)){
 			return 0;
 		}else{
-			$this->db->insert('image',array('item_id'=>$id,'image'=>$new_image,'image_thumb'=>$new_image));
+			$this->db->insert('image',array('item_id'=>$id,'image'=>$new_image,'image_thumb'=>$new_image,'alt'=>$alt));
 		}
 
 	}
@@ -55,13 +55,12 @@ class Edit_item_m extends Model
 	function delete_pic($id){
 			$this->db->delete('image',"id=$id");
 	}
-	function add_card_image($id,$new_image){
+	function add_card_image($id,$new_image,$alt){
 		if(empty($new_image)){
 			return 0;
 		}else{
-			$sql="UPDATE items SET card_image='$new_image' WHERE id=$id";
-			$result=$this->db->query($sql);
-			return $result->rowCount();
+            $this->db->insert('image',array('image'=>$new_image,'image_thumb'=>$new_image,'alt'=>$alt));
+            $this->db->update('items',array('card_image'=>$new_image),"id=$id");
 		}
 
 	}

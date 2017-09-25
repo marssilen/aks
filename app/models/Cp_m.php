@@ -5,7 +5,14 @@ class Cp_m extends Model
 function __construct(){
 parent::__construct();
 }
-
+function get_file($name){
+    return $this->db->select('select * from image WHERE image=:name',array('name'=>$name));
+}
+function change_file($id,$name,$alt,$oldfilename){
+    rename('public/upload/'.$oldfilename,'public/upload/'.$name);
+    $this->db->update('image',array('image'=>$name,'alt'=>$alt),"id=$id");
+    return $name;
+}
 function count($table){
 $result=$this->db->select("SELECT count(*) as count FROM $table");
 return $result[0]['count'];

@@ -36,8 +36,8 @@
     <?php foreach ($data['items'] as $item) {?>
         <div class="w3-col m3 s6" style="padding: 5px">
             <div class="img_c w3-card-2 w3-hover-shadow w3-round">
-                <a href="<?=URL?>item/<?=$item['id']?>">
-                <img src="<?= URL ?>public/upload/<?=$item['card_image']?>" alt="MIM PHOTOGRAPHY" style="width: 100%">
+                <a href="<?=URL?>item/<?=$item['id'].'/'.$item['name']?>">
+                <img src="<?= URL ?>public/upload/<?=$item['card_image']?>" alt="<?=$item['name']?>" style="width: 100%">
                 </a>
                 <p class="w3-center" style="margin-top: 10px;">
                     &ensp;<?=$item['name']?>

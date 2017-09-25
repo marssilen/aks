@@ -1,12 +1,13 @@
 <?php
 class Item extends Controller
 {
-	public function index($name='')
+	public function index($id='')
 	{
-		$data=$this->formModel->get($name);
+		$data=$this->formModel->get($id);
 		if(isset($data[0])){
-			$data[0]['image']=$this->formModel->get_images($name);
-			$this->view('item/index',$data[0]);
+			$data[0]['image']=$this->formModel->get_images($id);
+            $tags=$this->formModel->get_tags($id);
+			$this->view('item/index',['data'=>$data[0],'tags'=>$tags]);
 		}else {
 			header('location:'.URL);
 		}

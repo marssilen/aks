@@ -18,15 +18,14 @@ public function delete_file($filename){
     }
 }public function edit_file($filename){
     if(Session::get('role')=='admin'){
-//        echo unlink('public/upload/'.$filename);
-//        header("Location: ".URL."cp/files/");
-        $this->view('cp/edit_file',['filename'=>htmlentities($filename)],true);
-    }
-}
-public function rename_file($filename,$newName){
-    if(Session::get('role')=='admin'){
-        echo rename('public/upload/'.$filename,'public/upload/'.$newName);
-        header("Location: ".URL."cp/files/");
+        $req=array('id','submit','alt','name');
+        if(form::check($_POST,$req,true)){
+            $filename=$this->formModel->change_file($_POST['id'],$_POST['name'],$_POST['alt'],$filename);
+            header("Location: ".URL."cp/edit_file/$filename");
+        }
+        $file=$this->formModel->get_file($filename);
+//        if(isset($file[0]))
+        $this->view('cp/edit_file',$file[0],true);
     }
 }
 public function home_page()

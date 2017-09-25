@@ -36,7 +36,7 @@ foreach($images as $image){
 <a href="<?php echo 'delete_pic/'.$image['item_id'].'/'.$image['id']; ?>">
     <button class="w3-small">X</button></a>
 </div>
-<a href="<?php echo URL.'public/upload/'.$image['image']; ?>">
+<a href="<?php echo URL.'cp/edit_file/'.$image['image']; ?>">
 <img src="<?php echo URL.'public/upload/'.$image['image']; ?>" style="width:100%">
 </a>
 </div>
@@ -186,41 +186,39 @@ foreach($this->cats as $option){
 
 
 <div id="add_image_modal" class="w3-modal">
-  <div class="w3-modal-content">
-    <header class="w3-container w3-white">
+  <div class="w3-modal-content w3-container w3-round">
+    <header class="w3-white">
       <span onclick="document.getElementById('add_image_modal').style.display='none'"
       class="w3-closebtn">&times;</span>
-      <h2>Add image</h2>
     </header>
-    <div class="w3-container">
-        <form method="post" enctype="multipart/form-data" action="add_image/<?php echo $data['data']['id'] ?>">
-          <?php
-          echo $data['data']['id'];
-          ?>
-        <input name="image" type="file" id="image_upload" >
-        <br>
-        <button type="submit" name="add_image" class="w3-btn w3-red" style="display:block;width:100%">add</button>
+      <div class="w3-center">
+      <p>آپلود تصویر</p>
+      </div>
+    <div class="w3-container" style="padding: 50px">
+        <form method="post" enctype="multipart/form-data" action="add_image/<?=$data['data']['id']?>">
+        <input class="w3-input" placeholder="توضیح" name="alt">
+        <input name="image" type="file" id="image_upload" style="margin-top: 10px;margin-bottom: 10px" >
+        <button type="submit" name="add_image" class="btn btn-primary">ارسال</button>
         </form>
     </div>
-
   </div>
 </div>
-
-<div id="add_card_image_modal" class="w3-modal">
-  <div class="w3-modal-content">
-    <header class="w3-container w3-white">
+  <div id="add_card_image_modal" class="w3-modal">
+  <div class="w3-modal-content w3-container w3-round">
+    <header class="w3-white">
       <span onclick="document.getElementById('add_card_image_modal').style.display='none'"
       class="w3-closebtn">&times;</span>
-      <h2>Add image</h2>
     </header>
-    <div class="w3-container">
-    <form method="post" enctype="multipart/form-data" action="add_card_image/<?php echo $data['data']['id'] ?>">
-    <input name="image" type="file" id="image_upload" >
-    <button type="submit" name="add_card_image" class="w3-btn w3-red"  style="display:block;width:100%" >add</button>
-    </form>
-
+      <div class="w3-center">
+      <p>آپلود تصویر</p>
+      </div>
+    <div class="w3-container" style="padding: 50px">
+        <form method="post" enctype="multipart/form-data" action="add_card_image/<?=$data['data']['id']?>">
+        <input class="w3-input" placeholder="توضیح" name="alt">
+        <input name="image" type="file" id="image_upload" style="margin-top: 10px;margin-bottom: 10px" >
+        <button type="submit" name="add_card_image" class="btn btn-primary">ارسال</button>
+        </form>
     </div>
-
   </div>
 </div>
 

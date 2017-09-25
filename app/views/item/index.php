@@ -1,5 +1,5 @@
 <?php
-$title=$data['name'];
+$title=$data['data']['name'];
 $desc='description';
 require_once('app/views/head.php');
 ?>
@@ -8,13 +8,18 @@ require_once('app/views/head.php');
 
 <div class="container w3-row" style="padding: 50px">
     <div id="match1" class="w3-col m4 s12 pad w3-light-grey">
-        <img id="imgmatch" style="width:100%" src="<?= URL.'public/upload/'.$data['card_image']?>"/>
+        <img id="imgmatch" style="width:100%" src="<?= URL.'public/upload/'.$data['data']['card_image']?>"/>
     </div>
     <div id="match2" class="w3-col m8 s12 pad w3-light-grey" style="padding: 14px">
-        <h3><?php if (!empty($data['name'])){?><?= $data['name']?><?php } ?></h3>
+        <h3><?php if (!empty($data['data']['name'])){?><?= $data['data']['name']?><?php } ?></h3>
         <p>
-            <?= $data['long_description'] ?>
+            <?= $data['data']['long_description'] ?>
         </p>
+        <div>
+            <?php foreach ($data['tags'] as $tag){?>
+                <a href="<?=URL.'tag/'.$tag['tag']?>"><span class="tag"><?= $tag['tag']?></span></a>
+            <?php } ?>
+        </div>
     </div>
 </div>
 <!-- The Modal -->
@@ -26,10 +31,10 @@ require_once('app/views/head.php');
         <div style="clear: both"></div>
         <div style="max-width:1200px;margin: auto;" class="">
 <!--        --><?php
-//        $images=$data['image'];
+//        $images=$data['data']['image'];
 //        foreach ($images as $image) {?>
             <center>
-                <img id="img-slide" class="" alt="MIM PHOTOGRAPHY" style="width: <?=$data['width']?>;max-height: <?=$data['height']?>" src="<?= URL.'public/upload/'.$data['image'][0]['image']?>"/>
+                <img id="img-slide" alt="MIM PHOTOGRAPHY" style="width: <?=$data['data']['width']?>;max-height: <?=$data['data']['height']?>" src="<?= URL.'public/upload/'.$data['data']['image'][0]['image']?>"/>
             </center>
 <!--        --><?php //} ?>
         <p style="margin-top: 10px"></p>
@@ -37,9 +42,9 @@ require_once('app/views/head.php');
         </div>
         <div class="scrollmenu">
             <?php
-            $images=$data['image'];
+            $images=$data['data']['image'];
             foreach ($images as $image) {?>
-                <img alt="MIM PHOTOGRAPHY" style="width: 100px" onclick="show_slide('<?= URL.'public/upload/'.$image['image']?>')"
+                <img alt="<?=($image['alt']!='')?$image['alt']:'MIM-PHOTOGRAPHY'?>" style="width: 100px" onclick="show_slide('<?= URL.'public/upload/'.$image['image']?>')"
                      src="<?= URL.'public/upload/'.$image['image_thumb']?>"/>
             <?php } ?>
         </div>
@@ -48,19 +53,16 @@ require_once('app/views/head.php');
 <!---->
 <div class="w3-row container" style="margin-top: 10px">
     <?php
-    $images=$data['image'];
+    $images=$data['data']['image'];
     foreach ($images as $image) {?>
         <div class="w3-col m3 s6" style="padding: 5px">
             <div class="xxx w3-card-2 w3-hover-shadow w3-round">
-                <img class="w3-round" alt="MIM PHOTOGRAPHY" style="width: 100%" onclick="show_modal('<?= URL.'public/upload/'.$image['image']?>')"
+                <img class="w3-round" alt="<?=($image['alt']!='')?$image['alt']:'MIM-PHOTOGRAPHY'?>" style="width: 100%" onclick="show_modal('<?= URL.'public/upload/'.$image['image']?>')"
                      src="<?= URL.'public/upload/'.$image['image_thumb']?>"/>
             </div>
         </div>
     <?php } ?>
 </div>
-
-
-
 
 <script>
 function show_modal(src){

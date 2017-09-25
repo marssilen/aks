@@ -41,7 +41,7 @@ class Edit_item extends ControllerPanel
 			$formModel=$this->model('Edit_item_m');
             $imagename=	$this->upload_a_file();
             echo $imagename;
-			$formModel->add_image($id,$imagename);
+			$formModel->add_image($id,$imagename,$_POST['alt']);
 			header("Location: ../$id");
 		}
 
@@ -52,7 +52,7 @@ class Edit_item extends ControllerPanel
 		if(isset($_POST['add_card_image'])){
 			$formModel=$this->model('Edit_item_m');
 			$imagename=	$this->upload_a_file();
-			$formModel->add_card_image($id,$imagename);
+			$formModel->add_card_image($id,$imagename,$_POST['alt']);
 			header("Location: ../$id");
 		}
 

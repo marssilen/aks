@@ -1,3 +1,8 @@
+.tag{
+	color:#000 !important;background-color:#87CEEB !important;
+	border-radius:4px !important;
+	padding: 1px;
+}
 .mymodal {
 	display: none; /* Hidden by default */
 	position: fixed; /* Stay in place */

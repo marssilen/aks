@@ -1,6 +1,6 @@
 <?php
-//$images=explode(',',$data['image']);
-$images=  $data['image'];
+//$images=explode(',',$data['data']['image']);
+$images=  $data['data']['image'];
 ?>
 <?php require_once('app/views/head.php'); ?>
 <body>
@@ -9,8 +9,8 @@ $images=  $data['image'];
 <script src="<?= URL ?>public/js/ckeditor/ckeditor.js"></script>
 <div style="margin: 5px;padding: 0px">
   <div class="w3-card" style="display: inline-block;padding: 5px;">
-<a href="<?= 'delete_item/'.$data['id']; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border">حذف</button></a>
-<a href="<?=URL.'item/'.$data['id']; ?>"><button class="w3-padding-2 w3-btn w3-blue w3-round w3-border">نمایش</button></a>
+<a href="<?= 'delete_item/'.$data['data']['data']['id']; ?>"><button class="w3-padding-2 w3-btn w3-red w3-round w3-border">حذف</button></a>
+<a href="<?=URL.'item/'.$data['data']['id']; ?>"><button class="w3-padding-2 w3-btn w3-blue w3-round w3-border">نمایش</button></a>
 </div>
 </div>
 <br>
@@ -55,7 +55,7 @@ foreach($images as $image){
 
 <form method="post" enctype="multipart/form-data">
 <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $this->max_file_size; ?>">
-<textarea name="long_description" id="editor1"><?php echo $data['long_description'] ?></textarea><br>
+<textarea name="long_description" id="editor1"><?php echo $data['data']['long_description'] ?></textarea><br>
  <script>
                 // Replace the <textarea id="editor1"> with a CKEditor
                 // instance, using default configuration.
@@ -80,7 +80,7 @@ foreach($images as $image){
 <div class="w3-col s4" style="padding:15px">
 <div class="w3-card-2  w3-round">
 
-<img alt="Insert an image" src="<?php if(!empty($data['card_image']))echo URL.'public/upload/'.$data['card_image'];else  echo '../img/default.jpg'?>" style="width:100%">
+<img alt="Insert an image" src="<?php if(!empty($data['data']['card_image']))echo URL.'public/upload/'.$data['data']['card_image'];else  echo '../img/default.jpg'?>" style="width:100%">
 <div class="">
 <center>
 <button onclick="document.getElementById('add_card_image_modal').style.display='block'" class="w3-btn w3-green round_b" style="display:block;width:100%">تغییر</button>
@@ -91,10 +91,10 @@ foreach($images as $image){
 <br>
 
 <div class="w3-card-2  w3-round" >
-<form method="post" enctype="multipart/form-data" action="change_name/<?php echo $data['id'] ?>">
+<form method="post" enctype="multipart/form-data" action="change_name/<?php echo $data['data']['id'] ?>">
 <div class="w3-padding">
 <label class="w3-label w3-text-blue"><b>نام</b></label>
-<input class="w3-input w3-border w3-round" type="text" name="name"  value="<?php echo $data['name'] ?>">
+<input class="w3-input w3-border w3-round" type="text" name="name"  value="<?php echo $data['data']['name'] ?>">
 </div>
 <button type="submit" name="change_name" style="margin-top:15px;" class="w3-btn w3-green w3-input round_b" >تغییر</button>
 </form>
@@ -102,12 +102,12 @@ foreach($images as $image){
 </div>
 <br>
     <div class="w3-card-2  w3-round">
-    <form method="post" action="change_size/<?= $data['id'] ?>">
+    <form method="post" action="change_size/<?= $data['data']['id'] ?>">
         <label for="auto_size">auto</label> <input id="auto_size" type="radio" name="size" value="auto" checked>
-        <label for="static_size">static</label> <input id="static_size" type="radio" name="size" value="static" <?php if($data['width']!='100%')echo'checked';?>>
+        <label for="static_size">static</label> <input id="static_size" type="radio" name="size" value="static" <?php if($data['data']['width']!='100%')echo'checked';?>>
         <br>
-        width:<input name="width" id="img_width" type="number" class="w3-input" style="padding: 5px;width: 100px" placeholder="عرض" required value="<?= str_replace("px","",$data['width']) ?>">
-        height:<input name="height" id="img_height" type="number" class="w3-input" style="padding5px;width:100px" placeholder="ارتفاع" required value="<?= str_replace("px","",$data['height']) ?>"><br>
+        width:<input name="width" id="img_width" type="number" class="w3-input" style="padding: 5px;width: 100px" placeholder="عرض" required value="<?= str_replace("px","",$data['data']['width']) ?>">
+        height:<input name="height" id="img_height" type="number" class="w3-input" style="padding5px;width:100px" placeholder="ارتفاع" required value="<?= str_replace("px","",$data['data']['height']) ?>"><br>
         <button type="submit" name="change_size" style="margin-top:15px;" class="w3-btn w3-green w3-input round_b" >تغییر</button>
         <script>
             $(document).ready(function () {
@@ -129,14 +129,14 @@ foreach($images as $image){
         </script>
     </form>
     </div>
-<div class="w3-card-2  w3-round">
+<div class="w3-card-2  w3-round" style="margin-top: 10px">
   <div class="w3-container w3-padding">
 <label class="w3-label w3-text-blue"><b>دسته بندی</b></label>
-<form method="post" enctype="multipart/form-data" action="change_category/<?php echo $data['id'] ?>">
+<form method="post" enctype="multipart/form-data" action="change_category/<?php echo $data['data']['id'] ?>">
 <select name="cat" class="w3-select w3-border">
 <?php
 foreach($this->cats as $option){
-	$selected=($data['cat']==$option['id'])?'selected':'';
+	$selected=($data['data']['cat']==$option['id'])?'selected':'';
 	echo '<option value='.$option['id'].' '.$selected.'>'.$option['cat'].'</option>';
 	$option['cat'];
 }
@@ -157,13 +157,16 @@ foreach($this->cats as $option){
 تگ
 </b></label>
 </div>
-<form method="post" enctype="multipart/form-data" action="change_tag/<?php echo $data['id'] ?>">
+<form method="post" enctype="multipart/form-data" action="change_tag/<?php echo $data['data']['id'] ?>">
 <div class="w3-container">
-<input class="w3-input w3-border w3-round" type="text" name="tag" class="input" value="<?php
-$signs=["{","}"];
-$formated_string=str_replace($signs,"",$data['tag']);
-echo  $formated_string;
-?>"/>
+<input class="w3-input w3-border w3-round" type="text" name="tag" class="input" value="<?=$data['data']['tag_str']?>"/>
+    <p>
+        <?php
+        foreach ($data['tags'] as $tag){
+            echo $tag['tag'].'<br>';
+        }
+        ?>
+    </p>
 </div>
 <button type="submit" name="change_tag" style="margin-top:15px;" class="w3-btn w3-green w3-input round_b" >تغییر</button>
 </form>
@@ -190,9 +193,9 @@ echo  $formated_string;
       <h2>Add image</h2>
     </header>
     <div class="w3-container">
-        <form method="post" enctype="multipart/form-data" action="add_image/<?php echo $data['id'] ?>">
+        <form method="post" enctype="multipart/form-data" action="add_image/<?php echo $data['data']['id'] ?>">
           <?php
-          echo $data['id'];
+          echo $data['data']['id'];
           ?>
         <input name="image" type="file" id="image_upload" >
         <br>
@@ -211,7 +214,7 @@ echo  $formated_string;
       <h2>Add image</h2>
     </header>
     <div class="w3-container">
-    <form method="post" enctype="multipart/form-data" action="add_card_image/<?php echo $data['id'] ?>">
+    <form method="post" enctype="multipart/form-data" action="add_card_image/<?php echo $data['data']['id'] ?>">
     <input name="image" type="file" id="image_upload" >
     <button type="submit" name="add_card_image" class="w3-btn w3-red"  style="display:block;width:100%" >add</button>
     </form>

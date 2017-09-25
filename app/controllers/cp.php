@@ -91,7 +91,7 @@ public function home_page()
     }else {
         $pages = count($scanned_directory) / $row + 1;
     }
-    $pview=create_pview($pages);
+    $pview=create_pview(URL.'cp/files',$pages);
     $this->view('cp/files',['data'=>$data,'pview'=>$pview],true);
 //    print_r($scanned_directory);
 }
@@ -103,7 +103,7 @@ public function items($pageno=1)
 	if(isAdmin()){
 		$rows_per_page=8;
 		$data=$this->formModel->get_all($pageno,$rows_per_page);
-		$pview=$this->formModel->get_pview('items',$pageno,$rows_per_page);
+		$pview=$this->formModel->get_pview('items','cp/items',$rows_per_page);
 		$this->view('cp/index',['data'=>$data,'pview'=>$pview],true);
 	}
 }
@@ -231,7 +231,7 @@ function get_users($page=1){
 $page=(int)$page;
 $pagelimit=20;
 $data=$this->formModel->get_users($page,$pagelimit);
-$pview=$this->formModel->get_pview('userlist',$page,$pagelimit);
+$pview=$this->formModel->get_pview('userlist','cp/get_users',$pagelimit);
 $this->view('cp/users_list',['data'=>$data,'pview'=>$pview],true);
 }
 function edit_user($id){

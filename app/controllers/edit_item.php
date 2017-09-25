@@ -31,7 +31,8 @@ class Edit_item extends ControllerPanel
 			header("Location: ../cp/");
 		}
 		$data[0]['image']=$formModel->get_images($id);
-		$this->view('edit_item/index',$data[0]);
+		$tags=$this->formModel->get_tags($id);
+		$this->view('edit_item/index',['data'=>$data[0],'tags'=>$tags]);
 	}
 
 	function add_image($id){
@@ -72,7 +73,6 @@ class Edit_item extends ControllerPanel
 			$formModel=$this->model('Edit_item_m');
 			$formModel->change_tag($id,$_POST['tag']);
 			header("Location: ../$id");
-
 		}
 	}
 	function change_name($id){
@@ -97,32 +97,20 @@ class Edit_item extends ControllerPanel
             }
 
             echo '<pre>';
-            print_r($_POST);
-//            header("Location: ../$id");
+//            print_r($_POST);
+            header("Location: ".URL."edit_item/$id");
         }
     }
 
-	function change_price($id){
-		$this->check_id($id);
-		if(isset($_POST['change_price'])){
-			$formModel=$this->model('Edit_item_m');
-			$formModel->change_price($id,$_POST['old_price'],$_POST['price']);
-			header("Location: ../$id");
-		}
-	}
-
 	function delete_item($id){
 		$this->check_id($id);
-		$formModel=$this->model('Edit_item_m');
-		$formModel->delete_item($id);
-		header("Location: ../");
-
+		$this->formModel->delete_item($id);
+        header("Location: ".URL."cp/items/");
 	}
 	function delete_pic($id,$image_id){
 		$this->check_id($id);
-		$formModel=$this->model('Edit_item_m');
-		print_r( $formModel->delete_pic($image_id));
-		header("Location: ../$id");
+		$this->formModel->delete_pic($image_id);
+		header("Location: ".URL."edit_item/$id");
 	}
 
 	private function upload_a_file(){

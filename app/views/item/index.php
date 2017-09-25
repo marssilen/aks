@@ -1,36 +1,22 @@
-<?php require_once('app/views/head.php'); ?>
+<?php
+$title=$data['name'];
+$desc='description';
+require_once('app/views/head.php');
+?>
 <body>
 <?php require_once('app/views/menu.php'); ?>
-<!--  -->
-<div class="w3-white w3-padding-16" dir="rtl">
-    <div class="container w3-row">
-        <div class="w3-col m6">
-        </div>
-        <div class="w3-col m6">
-        </div>
-    </div>
-</div>
-<!--  -->
+
 <div class="container w3-row" style="padding: 50px">
-    <div class="w3-col m3 s12 pad">
-        <div class=" w3-card-2 w3-round">
-            <img style="width:100%" src="<?= URL.'public/upload/'.$data['card_image']?>"/>
-        </div>
+    <div id="match1" class="w3-col m4 s12 pad w3-light-grey">
+        <img id="imgmatch" style="width:100%" src="<?= URL.'public/upload/'.$data['card_image']?>"/>
     </div>
-    <div class="w3-col m1 s12 pad w3-light-grey">
-    </div>
-    <div class="w3-col m8 s12 pad w3-light-grey" style="padding: 14px">
+    <div id="match2" class="w3-col m8 s12 pad w3-light-grey" style="padding: 14px">
         <h3><?php if (!empty($data['name'])){?><?= $data['name']?><?php } ?></h3>
         <p>
             <?= $data['long_description'] ?>
         </p>
     </div>
-
 </div>
-<!---->
-
-<button id="mybtn">Open Modal</button>
-
 <!-- The Modal -->
 <div id="myModal" class="mymodal">
 
@@ -53,7 +39,7 @@
             <?php
             $images=$data['image'];
             foreach ($images as $image) {?>
-                <img class="" alt="MIM PHOTOGRAPHY" style="width: 100px" onclick="show_slide('<?= URL.'public/upload/'.$image['image']?>')"
+                <img alt="MIM PHOTOGRAPHY" style="width: 100px" onclick="show_slide('<?= URL.'public/upload/'.$image['image']?>')"
                      src="<?= URL.'public/upload/'.$image['image_thumb']?>"/>
             <?php } ?>
         </div>
@@ -65,7 +51,7 @@
     $images=$data['image'];
     foreach ($images as $image) {?>
         <div class="w3-col m3 s6" style="padding: 5px">
-            <div class=" w3-card-2 w3-hover-shadow w3-round">
+            <div class="xxx w3-card-2 w3-hover-shadow w3-round">
                 <img class="w3-round" alt="MIM PHOTOGRAPHY" style="width: 100%" onclick="show_modal('<?= URL.'public/upload/'.$image['image']?>')"
                      src="<?= URL.'public/upload/'.$image['image_thumb']?>"/>
             </div>
@@ -78,33 +64,19 @@
 
 <script>
 function show_modal(src){
-  document.getElementById('modalimg').style.display='block';
-  document.getElementById('img-mod').src=src;
+    document.getElementById('myModal').style.display='block';
+    document.getElementById('img-slide').src=src;
 }
 function show_slide(src){
     document.getElementById('img-slide').src=src;
 }
 </script>
-
-
-
-
-
-
-<div id="modalimg" class="w3-modal w3-animate-zoom w3-center" onclick="this.style.display='none'">
-  <img id="img-mod" class="w3-modal-content" src="<?= URL.'public/upload/a_22.png'?>">
-</div>
-
 <?php
 require_once ('app/views/footer.php');
 ?>
 <script>
     var modal = document.getElementById('myModal');
-    var btn = document.getElementById("mybtn");
     var span = document.getElementsByClassName("myclose")[0];
-    btn.onclick = function() {
-        modal.style.display = "block";
-    };
     span.onclick = function() {
         modal.style.display = "none";
     };
@@ -113,6 +85,14 @@ require_once ('app/views/footer.php');
             modal.style.display = "none";
         }
     };
+    var imgheight=$("#imgmatch").height();
+    var m1height=$("#match2").innerHeight();
+    if(imgheight>m1height) {
+        $("#match2").innerHeight(imgheight);
+    }else{
+        $("#match1").innerHeight(m1height);
+    }
+
 </script>
 </body>
 </html>

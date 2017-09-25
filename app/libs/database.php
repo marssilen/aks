@@ -67,7 +67,6 @@ class Database extends PDO{
 		$sql="$sql $limit";//WHERE id=?
 		$sth=$this->prepare($sql);
 		foreach($data as $key =>$value){
-			echo "string";
 			$sth->bindValue(":$key",$value);
 		}
 		$sth->execute();

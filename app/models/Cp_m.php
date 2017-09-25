@@ -45,7 +45,7 @@ function get_all($page,$rows_per_page){
 function get_pview($table,$page,$rows_per_page){
 	$numrows=$this->count($table);
 	$pages= ceil($numrows/$rows_per_page);
-	return create_pview($pages);
+	return create_pview(URL.$page,$pages);
 }
 function add_new(){
 $this->db->insert('items',array('id'=>''));

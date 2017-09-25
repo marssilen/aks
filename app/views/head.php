@@ -8,7 +8,13 @@ $settings=$this->settings;
 <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:image" content="<?php if(isset($settings['logo']))echo $settings['logo'];else{?>#<?php } ?>"/>
     <meta name="keywords" content="<?php if(isset($settings['keywords']))echo $settings['keywords'];else{?>MIM PHOTOGRAPHY<?php } ?>"/>
-    <meta name="description" content="<?php if(isset($settings['description']))echo $settings['description'];else{?>MIM PHOTOGRAPHY<?php } ?>"/>
+    <meta name="description" content="<?php
+    if(isset($desc)){
+        echo $desc;
+    }elseif(isset($settings['description'])){
+        echo $settings['description'];
+    }else{echo 'MIM PHOTOGRAPHY';
+    }?>"/>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="<?= URL ?>public/bootstrap-3.3.6-dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?= URL ?>public/css/w3.css">
@@ -22,10 +28,14 @@ $settings=$this->settings;
 
 <!-- Latest compiled JavaScript -->
 <script src="<?= URL ?>public/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-<script src="<?= URL ?>public/myscript.js"></script>
+<script src="<?= URL ?>public/js/myscript.js"></script>
 <script src="<?= URL ?>public/js/header.js.php"></script>
-<title><?php if(isset($settings['title']))echo $settings['title'];else{?>MIM PHOTOGRAPHY<?php } ?></title>
+<title><?php if(isset($title) and isset($settings['title']))echo $title.'-'.$settings['title'];
+elseif(isset($settings['title']))echo $settings['title'];else{?>MIM PHOTOGRAPHY<?php } ?></title>
     <style>
+        .xxx{
+            cursor: pointer;
+        }
         .slides{
             display: none;
         }

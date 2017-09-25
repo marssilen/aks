@@ -1,4 +1,5 @@
-<?php require_once('app/views/head.php'); ?>
+<?php
+require_once('app/views/head.php'); ?>
 <body>
 <?php require_once('app/views/menu.php'); ?>
 <?php 
@@ -39,7 +40,8 @@
     $count=0;
     foreach($data['items'] as $card){$count++;?>
         <?php if($count%2==0)echo' <div class="w3-row">'; ?>
-    <a href="<?=URL?>tag/<?=$card['url_cat'].'&category='.$card['cat']?>">
+    <a href="<?=URL?>cat/<?=$card['url_cat'].'/1/'.$card['cat']?>">
+<!--        &category='.$card['cat']-->
         <div class="w3-col m6 s12 w3-row" style="padding: 5px;">
             <div class="img_c w3-card-2 w3-hover-shadow w3-round">
                 <div class="w3-col l6">

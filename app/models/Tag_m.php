@@ -36,7 +36,7 @@ function add_to_favorite($item_id,$user_id){
     function get_pview($tag,$page,$rows_per_page=10){
         $numrows=$this->count($tag);
         $pages= ceil($numrows/$rows_per_page);
-        return create_pview($pages);
+        return create_pview(URL.'tag',$pages);
     }
     function count($tag){
         $result=$this->db->select("SELECT count(items.id) as count FROM tag JOIN items ON tag.itemid=items.id WHERE tag.tag=:tag",array('tag' => $tag));

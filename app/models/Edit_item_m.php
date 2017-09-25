@@ -5,7 +5,10 @@ class Edit_item_m extends Model
 	function __construct(){
 		parent::__construct();
 	}
-
+	function get_tags($id){
+	    $result=$this->db->select('select * from tag where itemid=:id',array('id'=>$id));
+	    return $result;
+    }
 	function change_text($id,$long_description){
 		$sql="UPDATE `items` SET
 		`long_description` = '$long_description' WHERE `items`.`id` = $id";
@@ -72,26 +75,19 @@ class Edit_item_m extends Model
 		}
 
 	}
-	function change_tag($id,$tag){
-		if(empty($tag)){
+	function change_tag($id,$tag_str){
+		if(empty($tag_str)){
 			return 0;
 		}else{
-			$tags=explode(',',$tag);
+		    $this->db->delete('tag',"itemid=$id",100);
+			$tags=explode(',',$tag_str);
 			$tags=array_filter($tags);
-			$length=count($tags);
-			$counter=0;
-			$formated_string='';
 			foreach($tags as $tag){
 				if($tag!=null){
-					$counter++;
-					$formated_string.='{'.$tag.'}';
-					$formated_string.= ($counter!=$length)?',':'';
+					$this->db->insert('tag',array('tag'=>$tag,'itemid'=>$id));
+					$this->db->update('items',array('tag_str'=>$tag_str),"id=$id");
 				}
-
 			}
-			$sql="UPDATE items SET tag='$formated_string' WHERE id=$id";
-			$result=$this->db->query($sql);
-			return $result->rowCount();
 		}
 
 	}

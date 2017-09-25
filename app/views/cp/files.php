@@ -15,7 +15,7 @@
 
 </p>
 <a class="btn btn-info" href="<?= URL ?>cp/delete_file/{{x}}">حذف</a>
-<a class="btn btn-success" href="<?= URL ?>cp/edit_file/{{x}}">edit</a>
+<a class="btn btn-success" href="<?= URL ?>cp/edit_file/{{x}}">ویرایش</a>
 </div>
 </div>
     </a>
@@ -36,19 +36,20 @@ app.controller('myCtrl', function($scope) {
 </div>
 
 <div id="add_card_image_modal" class="w3-modal">
-    <div class="w3-modal-content">
-        <header class="w3-container w3-white">
+    <div class="w3-modal-content w3-container w3-round">
+        <header class="w3-white">
       <span onclick="document.getElementById('add_card_image_modal').style.display='none'"
             class="w3-closebtn">&times;</span>
-            <h2>Add image</h2>
         </header>
-        <div class="w3-container">
-            <form method="post" enctype="multipart/form-data" action="">
-                <input name="image" type="file" id="image_upload" >
-                <button type="submit" name="add_card_image" class="w3-btn w3-red"  style="display:block;width:100%" >add</button>
-            </form>
-
+        <div class="w3-center">
+            <p>آپلود تصویر</p>
         </div>
-
+        <div class="w3-container" style="padding: 50px">
+            <form method="post" enctype="multipart/form-data" action="">
+                <input class="w3-input" placeholder="توضیح" name="alt">
+                <input name="image" type="file" id="image_upload" style="margin-top: 10px;margin-bottom: 10px" >
+                <button type="submit" name="add_card_image" class="btn btn-primary">ارسال</button>
+            </form>
+        </div>
     </div>
 </div>

@@ -13,6 +13,13 @@ function change_file($id,$name,$alt,$oldfilename){
     $this->db->update('image',array('image'=>$name,'alt'=>$alt),"id=$id");
     return $name;
 }
+    function add_image($new_image,$alt){
+        if(empty($new_image)){
+            return 0;
+        }else{
+            $this->db->insert('image',array('image'=>$new_image,'image_thumb'=>$new_image,'alt'=>$alt));
+        }
+    }
 function count($table){
 $result=$this->db->select("SELECT count(*) as count FROM $table");
 return $result[0]['count'];

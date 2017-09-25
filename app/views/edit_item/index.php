@@ -220,7 +220,7 @@ foreach($this->cats as $option){
         </form>
     </div>
   </div>
-</div>
+  </div>
 
 </body>
 </html>

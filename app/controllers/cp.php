@@ -24,8 +24,9 @@ public function delete_file($filename){
             header("Location: ".URL."cp/edit_file/$filename");
         }
         $file=$this->formModel->get_file($filename);
-//        if(isset($file[0]))
+        if(isset($file[0]))
         $this->view('cp/edit_file',$file[0],true);
+        else echo '404';
     }
 }
 public function home_page()
@@ -70,7 +71,7 @@ public function home_page()
     public function files($page=1){
         if(isset($_POST['add_card_image'])){
             $imagename=	$this->upload_a_file();
-//            $this->formModel->add_card_image($_POST['id'],$imagename);
+            $this->formModel->add_image($imagename,$_POST['alt']);
         }
     $row=20;
     $index=($page-1)*$row;
